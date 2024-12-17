@@ -23,11 +23,14 @@ public class Attacks
 
     public getDamage()
     {
-        
+        return damage;
     }
 
     public isUseable()
     {
-        
+        if(pp > 0)
+        {
+            return true;
+        }
     }
 }
