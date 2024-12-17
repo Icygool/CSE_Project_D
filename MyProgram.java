@@ -84,7 +84,8 @@ public class MyProgram {
                         + "\nOption 3: East"
                         + "\nEnter Where you would like to go: ");
                         String locations1 = scanner.nextLine();
-                        if()
+                        int isRealLocation = BinarySearch(locations, locations1);
+                        if(isRealLocation > 0)
                         {
                             
                             break;
