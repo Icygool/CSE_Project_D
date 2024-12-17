@@ -27,8 +27,15 @@ public class MyProgram {
         int[] pps = new int["5", "2", "2", "30", "25", "25"];
         String[] locations = new String["north", "west", "east", "south"];
 
+        String trainerBattle = "You walked in front of me, lets battle!";
+        String HealPokemon = "Would you like to rest your pokemon?";
+        String forest1 = "It is an empty forest";
+        
+        
+        String[] descriptions = new String[trainer, , ]
+
         String player = "";
-        String rival = "";
+        String trainer = "";
         String wild = "";
         
         
