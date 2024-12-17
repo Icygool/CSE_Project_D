@@ -19,13 +19,11 @@ public class MyProgram {
     {
         // TODO code application logic here
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("nanadsn");
         
         String[] pokemons = new String["Charmander", "Squirtle", "Bulbasaur"];
-        String[] attacks = new String["Flamethrower", "Fire Blast"];
+        String[] attacks = new String["Flamethrower", "Hydro Pump", "Solar Beam", "slash", "headbutt", "tackle"];
         String[] types = new String["Fire", "Water", "Grass", "Other"];
-        int[] damages = new int[];
+        int[] damages = new int["100", "120", "120", "" , "", ""];
         int[] pps = new int[];
         
         
