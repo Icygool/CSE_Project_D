@@ -12,31 +12,32 @@ public class Locations
 {
     public String name;
     public String description;
+    public String opponantName;
     
-    public Locations(String name, String description, boolean hasEvent)
+    public Locations(String name, String description, String opponantName)
     {
         this.name = name;
         this.description = description;
-        this.hasEvent = hasEvent;
+        this.opponantName = opponantName;
     }
 
     public pokemonCenter()
     {
-        
+        return ;
     }
 
     public forest()
     {
-        
+        return;
     }
 
     public rivalBattle()
     {
-        
+        return;
     }
 
     public moveBack()
     {
-        
+        return true;
     }
 }
