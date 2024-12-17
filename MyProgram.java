@@ -21,7 +21,7 @@ public class MyProgram {
         Scanner scanner = new Scanner(System.in);
         
         String[] pokemons = new String["Charmander", "Squirtle", "Bulbasaur"];
-        String[] attacks = new String["Flamethrower", "Hydro Pump", "Solar Beam", "slash", "headbutt", "tackle"];
+        String[] attacks = new String["Flamethrower", "Hydro Pump", "Solar Beam", "Headbutt", "Bite", "Slash"];
         String[] types = new String["Fire", "Water", "Grass", "Other"];
         int[] damages = new int["100", "120", "120", "50" , "50", "40"];
         int[] pps = new int["5", "2", "2", "30", "25", "25"];
