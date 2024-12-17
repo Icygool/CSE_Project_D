@@ -20,4 +20,14 @@ public class Attacks
         this.pp = pp;
         this.damage = damage;
     }
+
+    public getDamage()
+    {
+        
+    }
+
+    public isUseable()
+    {
+        
+    }
 }
