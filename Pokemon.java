@@ -26,5 +26,13 @@ public class Pokemon
         this.attack2 = attack2;
     }
     
-    
+    public takeDamage()
+    {
+        
+    }
+
+    public isAlive()
+    {
+        
+    }
 }
