@@ -23,8 +23,8 @@ public class MyProgram {
         String[] pokemons = new String["Charmander", "Squirtle", "Bulbasaur"];
         String[] attacks = new String["Flamethrower", "Hydro Pump", "Solar Beam", "slash", "headbutt", "tackle"];
         String[] types = new String["Fire", "Water", "Grass", "Other"];
-        int[] damages = new int["100", "120", "120", "" , "", ""];
-        int[] pps = new int[];
+        int[] damages = new int["100", "120", "120", "50" , "50", "40"];
+        int[] pps = new int["5", "2", "2", "30", "25", "25"];
         
         
         System.out.println("Pokemon Text Adventure");
