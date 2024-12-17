@@ -19,6 +19,8 @@ public class MyProgram {
     {
         // TODO code application logic here
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("nanadsn");
         
         String[] pokemons = new String["Charmander", "Squirtle", "Bulbasaur"];
         String[] attacks = new String["Flamethrower", "Fire Blast"];
