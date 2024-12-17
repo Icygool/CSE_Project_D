@@ -25,7 +25,7 @@ public class MyProgram {
         String[] types = new String["Fire", "Water", "Grass", "Other"];
         int[] damages = new int["100", "120", "120", "50" , "50", "40"];
         int[] pps = new int["5", "2", "2", "30", "25", "25"];
-        String[] locations = new String[];
+        String[] locations = new String["north", "west", "east", "south"];
 
         String player = "";
         String rival = "";
