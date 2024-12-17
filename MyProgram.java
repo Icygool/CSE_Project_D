@@ -99,6 +99,7 @@ public class MyProgram {
                 else if(goTo.equalsIgnorecase("west"))
                 {
                     locations.rival();
+                    break;
                 }
                 else
                 {
