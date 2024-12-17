@@ -94,15 +94,15 @@ public class MyProgram {
                     }
                 if(goTo.equalsIgnorecase("north"))
                 {
-                    
+                    locations.forest();
                 }
                 else if(goTo.equalsIgnorecase("west"))
                 {
-                    
+                    locations.rival();
                 }
                 else
                 {
-                    
+                    locations.pokemonCenter();
                 }    
             }
         
