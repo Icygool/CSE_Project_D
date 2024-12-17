@@ -12,7 +12,6 @@ public class Locations
 {
     public String name;
     public String description;
-    public boolean hasEvent;
     
     public Locations(String name, String description, boolean hasEvent)
     {
