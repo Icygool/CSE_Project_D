@@ -25,6 +25,7 @@ public class MyProgram {
         String[] types = new String["Fire", "Water", "Grass", "Other"];
         int[] damages = new int["100", "120", "120", "50" , "50", "40"];
         int[] pps = new int["5", "2", "2", "30", "25", "25"];
+        String[] locations = new String[];
 
         String player = "";
         String rival = "";
@@ -62,22 +63,27 @@ public class MyProgram {
                 int correctChoice = BinarySearch(pokemon, pokemonSelected);
                 if(correctChoice > 0)
                 {
+                    player += pokemonSelected;
                     break;
                 }
             }
         
         System.out.println();
+        while(true)
+            {
+                System.out.println("As you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
+                + "\n The North path leads deep into the forest, where wild pokemon are bound to be present."
+                + "\n The West path leads directly into a small town, where you may encounter other pokemon trainers,"
+                + "\n the East path leads directly into a city, you can find a pokemon center there to heal your pokemon.");
         
-        System.out.println("As you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
-        + "\n The North path leads deep into the forest, where wild pokemon are bound to be present."
-        + "\n The West path leads directly into a small town, where you may encounter other pokemon trainers,"
-        + "\n the East path leads directly into a city, you can find a pokemon center there to heal your pokemon.");
+                System.out.println("Option 1: North"
+                + "\nOption 2: West"
+                + "\nOption 3: East"
+                + "\nEnter Where you would like to go: ");
+                String locations1 = scanner.nextLine();
+                
+            }
         
-        System.out.println("Option 1: North"
-        + "\nOption 2: West"
-        + "\nOption 3: East"
-        + "\nEnter Where you would like to go: ");
-        String locations1 = scanner.nextLine();
     }
 
     public static int binarySearch(String[] a1, String str)
