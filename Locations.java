@@ -20,4 +20,19 @@ public class Locations
         this.description = description;
         this.hasEvent = hasEvent;
     }
+
+    public pokemonCenter()
+    {
+        
+    }
+
+    public forest()
+    {
+        
+    }
+
+    public rivalBattle()
+    {
+        
+    }
 }
