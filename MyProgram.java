@@ -51,13 +51,20 @@ public class MyProgram {
         }
         
         System.out.println();
-        
-        System.out.println("First. Please select one of the following pokemon."
-        + "\nOption 1: Charmander"
-        + "\nOption 2: Squirtle"
-        + "\nOption 3: Bulbasaur");
-        String pokemonSelected = scanner.nextLine();
-        
+
+        while(true)
+            {
+                System.out.println("First. Please select one of the following pokemon."
+                + "\nOption 1: Charmander"
+                + "\nOption 2: Squirtle"
+                + "\nOption 3: Bulbasaur");
+                String pokemonSelected = scanner.nextLine();
+                int correctChoice = BinarySearch(pokemon, pokemonSelected);
+                if(correctChoice > 0)
+                {
+                    break;
+                }
+            }
         
         System.out.println();
         
