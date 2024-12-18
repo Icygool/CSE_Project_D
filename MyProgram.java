@@ -72,7 +72,7 @@ public class MyProgram {
                 int correctChoice = BinarySearch(pokemon, pokemonSelected);
                 if(correctChoice >= 0)
                 {
-                    
+                    Pokemon player = new Pokemon();
                     player.add(pokemons.(correctChoice));
                     player.add(hp.(correctChoice));
                     player.add(attacks.(correctChoice));
