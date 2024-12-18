@@ -21,6 +21,7 @@ public class MyProgram {
         Scanner scanner = new Scanner(System.in);
         
         String[] pokemons = new String["Charmander", "Squirtle", "Bulbasaur"];
+        String[] hp = new int[360, 390, 300];
         String[] attacks = new String["Flamethrower", "Hydro Pump", "Solar Beam", "Headbutt", "Bite", "Slash"];
         String[] types = new String["Fire", "Water", "Grass", "Other"];
         int[] damages = new int["100", "120", "120", "50" , "50", "40"];
@@ -34,9 +35,9 @@ public class MyProgram {
         
         String[] descriptions = new String[trainer, , ]
 
-        String player = "";
-        String trainer = "";
-        String wild = "";
+        String playerName = "";
+        String[] trainer = [];
+        String[] wild = [];
         
         
         System.out.println("Pokemon Text Adventure");
@@ -49,9 +50,10 @@ public class MyProgram {
             System.out.println("Hi! Sorry to keep you waiting! Welcome to the world of Pokémon! My name is Oak. People call me the Pokémon Professor."
             + "\nThis is a world inhabited by creatures called Pokémon."
             + "\nFor some people, Pokémon are pets. Others use them for fights. Myself... I study Pokémon as a profession." 
-            + "\nBut first, tell me a little about yourself. what's your name: [player name]\n" 
-            + "\nAll right, so your name is [player name]. Your adventure is about to unfold. Fun experiences, difficult experiences..."
-            + "\nThere's so much waiting for you. Dreams, adventure, let's go!");
+            + "\nBut first, tell me a little about yourself. what's your name: "
+            playerName = scanner.nextLine();
+            System.out.println("All right, so your name is " + playerName + ". Your adventure is about to unfold. Fun experiences, difficult experiences..."
+            + "\nThere's so much waiting for you. Dreams, adventure, let's go!");                  
         }
         else
         {
@@ -68,9 +70,17 @@ public class MyProgram {
                 + "\nOption 3: Bulbasaur");
                 String pokemonSelected = scanner.nextLine();
                 int correctChoice = BinarySearch(pokemon, pokemonSelected);
-                if(correctChoice > 0)
+                if(correctChoice >= 0)
                 {
-                    player += pokemonSelected;
+                    
+                    player.add(pokemons.(correctChoice));
+                    player.add(hp.(correctChoice));
+                    player.add(attacks.(correctChoice));
+                    player.add(types.(correctChoice));
+                    player.add(pp.(correctChoice));
+                    player.add(attacks.(attacks.length() - correctChoice));
+                    player.add(types.(types.length() - correctChoice));
+                    player.add(pp.(pp.length() - correctChoice));
                     break;
                 }
             }
@@ -102,15 +112,17 @@ public class MyProgram {
             if(goTo.equalsIgnorecase("north"))
             {
                 locations.forest();
+                
             }
             else if(goTo.equalsIgnorecase("west"))
             {
-                locations.rival();
+                locations.trainerBattle();
                 break;
             }
             else
             {
                 locations.pokemonCenter();
+                
             }    
         }
 
@@ -178,6 +190,6 @@ public class MyProgram {
                 high = mid - 1;
             }
         }
-        return 0;
+        return -1;
     }
 }
