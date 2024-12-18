@@ -23,6 +23,12 @@ public class Locations
 
     public pokemonCenter()
     {
+        System.out.println("Hello, welcome to the pokemon center. would you like to heal your pokemon?: ");
+        
+        if()
+        {
+            
+        }
         return ;
     }
 
