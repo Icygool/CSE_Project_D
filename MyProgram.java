@@ -113,7 +113,43 @@ public class MyProgram {
                 locations.pokemonCenter();
             }    
         }
+
+        while(true)
+        {
+            String goTo = "";
+            while(true)
+            {
+                System.out.println("After the battle with pokemon trainer, he tells you to go ,"
+                + "\n The North path leads deep into the forest, where wild pokemon are bound to be present."
+                + "\n The West path leads directly into a small town, where you may encounter other pokemon trainers,"
+                + "\n the East path leads directly into a city, you can find a pokemon center there to heal your pokemon.");
         
+                System.out.println("Option 1: North"
+                + "\nOption 2: West"
+                + "\nOption 3: East"
+                + "\nEnter Where you would like to go: ");
+                String locations1 = scanner.nextLine();
+                int isRealLocation = BinarySearch(locations, locations1);
+                if(isRealLocation > 0)
+                {
+                    goTo += locations1;
+                    break;
+                }
+            }
+            if(goTo.equalsIgnorecase("north"))
+            {
+                locations.forest();
+            }
+            else if(goTo.equalsIgnorecase("west"))
+            {
+                locations.rival();
+                break;
+            }
+            else
+            {
+                locations.pokemonCenter();
+            }    
+        }
     }
 
     public static int binarySearch(String[] a1, String str)
