@@ -13,7 +13,8 @@ public class Encounter
     this.playerAttack1 = playerAttack1;
     this.playerAttack2 = playerAttack2;
     this.opponant = opponant;
-    
+    this.opponantAttack1 = opponantAttack1;
+    this.opponantAttack2 = opponantAttack2;
   }
 
   public 
