@@ -13,17 +13,24 @@ public class Attacks
     public String name;
     public int pp;
     public int damage;
+    public String type;
     
-    public Attacks(String name, int pp, int damage)
+    public Attacks(String name, int pp, int damage, String type)
     {
         this.name = name;
         this.pp = pp;
         this.damage = damage;
+        this.type = type;
     }
 
     public getDamage()
     {
         return damage;
+    }
+
+    public getType()
+    {
+        return type;
     }
 
     public isUseable()
