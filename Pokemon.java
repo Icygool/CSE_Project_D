@@ -25,20 +25,13 @@ public class Pokemon
     public int damage;
     
     
-    public Pokemon(String name, String type, int hp, String attack1, String attack1type, int attack1damage, int attack1pp,
-                   String attack2, String attack2type, int attack2damage, int attack2pp)
+    public Pokemon(String name, String type, int hp, String attack1, String attack2)
     {
         this.name = name;
         this.type = type;
         this.hp = hp;
         this.attack1 = attack1;
-        this.attack1type = attack1type;
-        this.attack1damage = attack1damage;
-        this.attack1pp = attack1pp;
         this.attack2 = attack2;
-        this.attack2 = attack2type;
-        this.attack2 = attack2damage;
-        this.attack2 = attack2pp;
     }
     
     public takeDamage()
