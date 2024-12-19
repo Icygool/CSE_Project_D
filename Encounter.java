@@ -23,7 +23,10 @@ public class Encounter
 
     while(true)
       {
-        
+        System.out.println("");
+        System.out.println("");
+
+        System.out.println("");
       }
   }
 }
