@@ -77,10 +77,9 @@ public class MyProgram {
                 int correctChoice = BinarySearch(pokemon, pokemonSelected);
                 if(correctChoice >= 0)
                 {
-                    Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice));
-                    Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), );
-                    
-                    Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice);
+                    Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice), types.(correctChoice));
+                    Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), types.(3));
+                    Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice, types.(correctChoice));
                     break;
                 }
             }
@@ -120,6 +119,10 @@ public class MyProgram {
             }
             else if(goTo.equalsIgnorecase("west"))
             {
+                Attacks attack1  = new Attack( , , );
+                Attacks attack2  = new Attack( , , );
+                pokemon trainer = new Pokemon(pokemons.(1), hp.(1), attacks.(1), attacks(4), types(1));
+                
                 locations.trainerBattle();
                 
                 break;
@@ -160,6 +163,11 @@ public class MyProgram {
             if(goTo.equalsIgnorecase("north"))
             {
                 locations.forest();
+                Attacks attack1  = new Attack(attacks.(), , );
+                Attacks attack2  = new Attack( , , );
+                pokemon wild = new Pokemon(pokemons.(2), hp.(2), attacks.(2), attacks.(5), types.(2));
+                
+                locations.trainerBattle();
             }
             else if(goTo.equalsIgnorecase("west"))
             {
