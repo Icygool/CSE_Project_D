@@ -9,6 +9,12 @@ public class Encounter
   
   public Encounter(Pokemon player, Attacks playerAttack1, Attacks playerAttack2, Pokemon opponant, Attacks opponantAttack1, Attacks opponantAttack2)
   {
+    this.player = player;
+    this.playerAttack1 = playerAttack1;
+    this.playerAttack2 = playerAttack2;
+    this.opponant = opponant;
     
   }
+
+  public 
 }
