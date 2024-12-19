@@ -31,14 +31,18 @@ public class MyProgram {
         String trainerBattle = "You walked in front of me, lets battle!";
         String HealPokemon = "Would you like to rest your pokemon?";
         String forest1 = "It is an empty forest";
+        String town2 = "A snorlax is blocking the way";
+        String forest2 = "YOu encountered a wild bulbasaur";
         
         
-        String[] descriptions = new String[trainer, , ]
+        String[] descriptions = new String[trainerBattle, HealPokemon, forest1]
 
         String playerName = "";
         String[] trainer = [];
         String[] wild = [];
         
+        ArrayList<Pokemon> allPokemons = new ArrayList<Pokemon>
+        ArrayList<Attacks> allAttacks = new  ArrayList<Attacks>
         
         System.out.println("Pokemon Text Adventure");
         System.out.println("Start \nExit");
@@ -61,6 +65,7 @@ public class MyProgram {
         }
         
         System.out.println();
+        
 
         while(true)
             {
@@ -72,8 +77,8 @@ public class MyProgram {
                 int correctChoice = BinarySearch(pokemon, pokemonSelected);
                 if(correctChoice >= 0)
                 {
-                    Attacks attack1 = attacks.(correctChoice);
-                    Attacks attack2 = attacks.(attacks.length() - correctChoice);
+                    Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice));
+                    Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), );
                     
                     Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice);
                     break;
@@ -103,6 +108,10 @@ public class MyProgram {
                     goTo += locations1;
                     break;
                 }
+                else
+                {
+                    System.out.println("That is not a location you can visit. Please try again.");
+                }
             }
             if(goTo.equalsIgnorecase("north"))
             {
@@ -112,6 +121,7 @@ public class MyProgram {
             else if(goTo.equalsIgnorecase("west"))
             {
                 locations.trainerBattle();
+                
                 break;
             }
             else
@@ -126,9 +136,9 @@ public class MyProgram {
             String goTo = "";
             while(true)
             {
-                System.out.println("After the battle with pokemon trainer, he tells you to go ,"
-                + "\n The North path leads deep into the forest, where wild pokemon are bound to be present."
-                + "\n The West path leads directly into a small town, where you may encounter other pokemon trainers,"
+                System.out.println("After the battle with pokemon trainer, you continue your journey west, before coming across another fork in the road"
+                + "\n The North path leads into another forest, the path might not be blocked this time."
+                + "\n The West path leads directly into a town, it doesnt seem like thers much people around"
                 + "\n the East path leads directly into a city, you can find a pokemon center there to heal your pokemon.");
         
                 System.out.println("Option 1: North"
@@ -142,6 +152,10 @@ public class MyProgram {
                     goTo += locations1;
                     break;
                 }
+                else
+                {
+                    System.out.println("That is not a location you can visit. Please try again.");
+                }
             }
             if(goTo.equalsIgnorecase("north"))
             {
@@ -149,7 +163,7 @@ public class MyProgram {
             }
             else if(goTo.equalsIgnorecase("west"))
             {
-                locations.rival();
+                locations.();
                 break;
             }
             else
