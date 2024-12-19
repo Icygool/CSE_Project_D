@@ -38,11 +38,6 @@ public class MyProgram {
         String[] descriptions = new String[trainerBattle, HealPokemon, forest1]
 
         String playerName = "";
-        String[] trainer = [];
-        String[] wild = [];
-        
-        ArrayList<Pokemon> allPokemons = new ArrayList<Pokemon>
-        ArrayList<Attacks> allAttacks = new  ArrayList<Attacks>
         
         System.out.println("Pokemon Text Adventure");
         System.out.println("Start \nExit");
@@ -119,12 +114,12 @@ public class MyProgram {
             }
             else if(goTo.equalsIgnorecase("west"))
             {
-                Attacks attack1  = new Attack(attacks(1), pps.(1), types.(1));
-                Attacks attack2  = new Attack(attacks.(4), pps.(4), types.(3));
+                Attacks trainerAttack1  = new Attack(attacks(1), pps.(1), types.(1));
+                Attacks trainerAttack2  = new Attack(attacks.(4), pps.(4), types.(3));
                 pokemon trainer = new Pokemon(pokemons.(1), hp.(1), attacks.(1), attacks(4), types(1));
                 
                 locations.trainerBattle();
-                
+                wildEncounter = Encounter(player, playerAttack1, playerAttack2, trainer, trainerAttack1, trainerAttack2);
                 break;
             }
             else
@@ -163,11 +158,12 @@ public class MyProgram {
             if(goTo.equalsIgnorecase("north"))
             {
                 locations.forest();
-                Attacks attack1  = new Attack(attacks.(2), pps.(2), types.(2));
-                Attacks attack2  = new Attack(5), pps.(5), types.(3));
+                Attacks wildAttack1  = new Attack(attacks.(2), pps.(2), types.(2));
+                Attacks wildAttack2  = new Attack(5), pps.(5), types.(3));
                 pokemon wild = new Pokemon(pokemons.(2), hp.(2), attacks.(2), attacks.(5), types.(2));
                 
                 locations.trainerBattle();
+                wildEncounter = Encounter(player, playerAttack1, playerAttack2, wild, wildAttack1, wildAttack2);
             }
             else if(goTo.equalsIgnorecase("west"))
             {
