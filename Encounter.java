@@ -19,6 +19,8 @@ public class Encounter
 
   public battle()
   {
+    System.out.println("You sent out " + player + ", your opponant sent out a " + opponant);
+
     while(true)
       {
         
