@@ -119,8 +119,8 @@ public class MyProgram {
             }
             else if(goTo.equalsIgnorecase("west"))
             {
-                Attacks attack1  = new Attack( , , );
-                Attacks attack2  = new Attack( , , );
+                Attacks attack1  = new Attack(attacks(1), pps.(1), types.(1));
+                Attacks attack2  = new Attack(attacks.(4), pps.(4), types.(3));
                 pokemon trainer = new Pokemon(pokemons.(1), hp.(1), attacks.(1), attacks(4), types(1));
                 
                 locations.trainerBattle();
@@ -163,8 +163,8 @@ public class MyProgram {
             if(goTo.equalsIgnorecase("north"))
             {
                 locations.forest();
-                Attacks attack1  = new Attack(attacks.(), , );
-                Attacks attack2  = new Attack( , , );
+                Attacks attack1  = new Attack(attacks.(2), pps.(2), types.(2));
+                Attacks attack2  = new Attack(5), pps.(5), types.(3));
                 pokemon wild = new Pokemon(pokemons.(2), hp.(2), attacks.(2), attacks.(5), types.(2));
                 
                 locations.trainerBattle();
