@@ -14,13 +14,7 @@ public class Pokemon
     public String type;
     public int hp;
     public String attack1;
-    public String attack1type;
-    public int attack1damage;
-    public int attack1pp;
     public String attack2;
-    public String attack2type;
-    public int attack2damage;
-    public int attack2pp;
     
     public int damage;
     
