@@ -17,5 +17,12 @@ public class Encounter
     this.opponantAttack2 = opponantAttack2;
   }
 
-  public 
+  public battle()
+  {
+    while(true)
+      {
+        
+      }
+  }
 }
+
