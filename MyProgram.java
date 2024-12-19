@@ -72,15 +72,10 @@ public class MyProgram {
                 int correctChoice = BinarySearch(pokemon, pokemonSelected);
                 if(correctChoice >= 0)
                 {
-                    Pokemon player = new Pokemon();
-                    player.add(pokemons.(correctChoice));
-                    player.add(hp.(correctChoice));
-                    player.add(attacks.(correctChoice));
-                    player.add(types.(correctChoice));
-                    player.add(pp.(correctChoice));
-                    player.add(attacks.(attacks.length() - correctChoice));
-                    player.add(types.(types.length() - correctChoice));
-                    player.add(pp.(pp.length() - correctChoice));
+                    Attacks attack1 = attacks.(correctChoice);
+                    Attacks attack2 = attacks.(attacks.length() - correctChoice);
+                    
+                    Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice);
                     break;
                 }
             }
