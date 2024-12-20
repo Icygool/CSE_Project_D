@@ -25,8 +25,13 @@ public class Encounter
       {
         System.out.println("");
         System.out.println("");
+        
+        System.out.println("WHat will you like to do?" 
+                           + "Opion 1: " + playerAttack1
+                           + "\n Option2:" + playerAttack2);
+        String choice = ;
 
-        System.out.println("");
+        
       }
   }
 }
