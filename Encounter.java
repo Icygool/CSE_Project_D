@@ -23,6 +23,7 @@ public class Encounter
   public battle()
   {
     Scanner scanner = new Scanner(System.in);
+    Random rand = new Random();
     
     System.out.println("You sent out " + player + ", your opponant sent out a " + opponant);
 
@@ -30,15 +31,37 @@ public class Encounter
       {
         System.out.println(opponant + " HP:" + opponant.getHP());
         System.out.println(player + " HP: " + player.getHP());
+
+        while(true)
+          {
+            while(true)
+              {
+                System.out.println("What will you like to do?" 
+                           + "Opion 1: " + playerAttack1.getName() + ": damage" +  + " pp: " + playerAttack1.getPP()
+                           + "\n Option2:" + playerAttack2.getName() + ": damage" +  + " pp: " + playerAttack2.getPP());
+                String choice = scanner.nextLine();
+                if(choice.equalsIgnorecase(playerAttack1.getName()))
+                {
+                  System.out.println("");
+                  break;
+                }
+                else if(choice.equalsIgnorecase(playerAttack1.getName()))
+                {  
+                  System.out.println("");
+                  break;
+                }
+              }
+            int opponantMove = rand.nextInt(2) + 1;
+            if(opponantMove == 1)
+            {
+              
+            }
+            else if(opponantMove == 2)
+            {
+              
+            }
+          }
         
-        System.out.println("WHat will you like to do?" 
-                           + "Opion 1: " + playerAttack1 + ": damage" +  + " pp: " + playerAttack1.getPP
-                           + "\n Option2:" + playerAttack2 + ": damage" +  + " pp: " + playerAttack2.getPP);
-        String choice = scanner.nextLine();
-        if()
-        {
-          
-        }
 
         
       }
