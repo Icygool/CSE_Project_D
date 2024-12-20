@@ -23,6 +23,11 @@ public class Attacks
         this.type = type;
     }
 
+    public getName()
+    {
+        return name;
+    }
+
     public getDamage()
     {
         return damage;
