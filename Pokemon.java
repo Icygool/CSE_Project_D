@@ -28,6 +28,11 @@ public class Pokemon
         this.attack2 = attack2;
     }
 
+    public getName()
+    {
+        return name;
+    }
+
     public getHP()
     {
         return hp;
