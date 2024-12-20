@@ -33,11 +33,20 @@ public class Attacks
         return type;
     }
 
+    public getPP()
+    {
+        return pp;
+    }
+
     public isUseable()
     {
         if(pp > 0)
         {
             return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
