@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.util.Random;
+
 public class Encounter
 {
   public Pokemon player;
@@ -19,17 +22,23 @@ public class Encounter
 
   public battle()
   {
+    Scanner scanner = new Scanner(System.in);
+    
     System.out.println("You sent out " + player + ", your opponant sent out a " + opponant);
 
     while(true)
       {
-        System.out.println("");
-        System.out.println("");
+        System.out.println(opponant + " HP:" + opponant.getHP());
+        System.out.println(player + " HP: " + player.getHP());
         
         System.out.println("WHat will you like to do?" 
-                           + "Opion 1: " + playerAttack1
-                           + "\n Option2:" + playerAttack2);
-        String choice = ;
+                           + "Opion 1: " + playerAttack1 + ": damage" +  + " pp: " + playerAttack1.getPP
+                           + "\n Option2:" + playerAttack2 + ": damage" +  + " pp: " + playerAttack2.getPP);
+        String choice = scanner.nextLine();
+        if()
+        {
+          
+        }
 
         
       }
