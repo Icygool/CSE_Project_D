@@ -164,17 +164,18 @@ public class MyProgram {
                 
                 locations.trainerBattle();
                 wildEncounter = Encounter(player, playerAttack1, playerAttack2, wild, wildAttack1, wildAttack2);
+                break;
             }
             else if(goTo.equalsIgnorecase("west"))
             {
                 locations.();
-                break;
             }
             else
             {
                 locations.pokemonCenter();
             }    
         }
+        System.out.println("Congratulations, your a failure");
     }
 
     public static int binarySearch(String[] a1, String str)
