@@ -25,12 +25,12 @@ public class Encounter
     Scanner scanner = new Scanner(System.in);
     Random rand = new Random();
     
-    System.out.println("You sent out " + player + ", your opponant sent out a " + opponant);
+    System.out.println("You sent out " + player.getName() + ", your opponant sent out a " + opponant.getName());
 
     while(true)
       {
-        System.out.println(opponant + " HP:" + opponant.getHP());
-        System.out.println(player + " HP: " + player.getHP());
+        System.out.println(opponant.getName() + " HP:" + opponant.getHP());
+        System.out.println(player.getName() + " HP: " + player.getHP());
 
         while(true)
           {
@@ -43,22 +43,24 @@ public class Encounter
                 if(choice.equalsIgnorecase(playerAttack1.getName()))
                 {
                   System.out.println("");
+                  opponant.getHP() -= playerAttack1.getDamage();
                   break;
                 }
                 else if(choice.equalsIgnorecase(playerAttack1.getName()))
                 {  
                   System.out.println("");
+                  opponant.getHP() -= playerAttack2.getDamage();
                   break;
                 }
               }
             int opponantMove = rand.nextInt(2) + 1;
             if(opponantMove == 1)
             {
-              
+              System.out.println("");
             }
             else if(opponantMove == 2)
             {
-              
+              System.out.println("");
             }
           }
         
