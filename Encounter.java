@@ -66,9 +66,8 @@ public class Encounter
               player.getHP() -= opponantAttack2.getdamage();
             }
           }
-        
 
-        
+        System.out.println("Congratulations");
       }
   }
 }
