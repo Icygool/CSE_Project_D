@@ -44,6 +44,7 @@ public class Encounter
                 {
                   System.out.println("");
                   opponant.getHP() -= playerAttack1.getDamage();
+                  
                   break;
                 }
                 else if(choice.equalsIgnorecase(playerAttack1.getName()))
@@ -57,10 +58,12 @@ public class Encounter
             if(opponantMove == 1)
             {
               System.out.println("");
+              player.getHP() -= opponantAttack1.getdamage();
             }
             else if(opponantMove == 2)
             {
               System.out.println("");
+              player.getHP() -= opponantAttack2.getdamage();
             }
           }
         
