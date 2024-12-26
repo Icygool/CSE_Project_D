@@ -33,6 +33,16 @@ public class Pokemon
         return name;
     }
 
+    public getAttack1()
+    {
+        return attack1;
+    }
+
+    public getAttack2()
+    {
+        return attack2;
+    }
+
     public getHP()
     {
         return hp;
