@@ -13,13 +13,13 @@ public class Pokemon
     public String name;
     public String type;
     public int hp;
-    public String attack1;
-    public String attack2;
+    public Attacks attack1;
+    public Attacks attack2;
     
     public int damage;
     
     
-    public Pokemon(String name, String type, int hp, String attack1, String attack2)
+    public Pokemon(String name, String type, int hp, Attack attack1, Attack attack2)
     {
         this.name = name;
         this.type = type;
