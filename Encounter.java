@@ -4,20 +4,12 @@ import java.util.Random;
 public class Encounter
 {
   public Pokemon player;
-  public Attacks playerAttack1;
-  public Attacks playerAttack2;
   public Pokemon opponant;
-  public Attacks opponantAttack1;
-  public Attacks opponantAttack2;
   
-  public Encounter(Pokemon player, Attacks playerAttack1, Attacks playerAttack2, Pokemon opponant, Attacks opponantAttack1, Attacks opponantAttack2)
+  public Encounter(Pokemon player, Pokemon opponant)
   {
     this.player = player;
-    this.playerAttack1 = playerAttack1;
-    this.playerAttack2 = playerAttack2;
     this.opponant = opponant;
-    this.opponantAttack1 = opponantAttack1;
-    this.opponantAttack2 = opponantAttack2;
   }
 
   public battle()
@@ -37,20 +29,20 @@ public class Encounter
             while(true)
               {
                 System.out.println("What will you like to do?" 
-                           + "Opion 1: " + playerAttack1.getName() + ": damage" +  + " pp: " + playerAttack1.getPP()
-                           + "\n Option2:" + playerAttack2.getName() + ": damage" +  + " pp: " + playerAttack2.getPP());
+                           + "Opion 1: " + player.Attack1().getName() + ": damage" +  + " pp: " + player.Attack1().getPP()
+                           + "\n Option2:" + player.Attack2().getName() + ": damage" +  + " pp: " + player.Attack2().getPP());
                 String choice = scanner.nextLine();
-                if(choice.equalsIgnorecase(playerAttack1.getName()))
+                if(choice.equalsIgnorecase(player.Attack1().getName()))
                 {
                   System.out.println("");
-                  opponant.getHP() -= playerAttack1.getDamage();
+                  opponant.getHP() -= player.Attack1().getDamage();
                   
                   break;
                 }
-                else if(choice.equalsIgnorecase(playerAttack1.getName()))
+                else if(choice.equalsIgnorecase(player.Attack1().getName()))
                 {  
                   System.out.println("");
-                  opponant.getHP() -= playerAttack2.getDamage();
+                  opponant.getHP() -= player.Attack2().getDamage();
                   break;
                 }
               }
@@ -58,12 +50,12 @@ public class Encounter
             if(opponantMove == 1)
             {
               System.out.println("");
-              player.getHP() -= opponantAttack1.getdamage();
+              player.getHP() -= opponant.Attack1().getdamage();
             }
             else if(opponantMove == 2)
             {
               System.out.println("");
-              player.getHP() -= opponantAttack2.getdamage();
+              player.getHP() -= opponant.Attack2().getdamage();
             }
 
             if()
