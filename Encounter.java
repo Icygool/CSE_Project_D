@@ -65,9 +65,14 @@ public class Encounter
               System.out.println("");
               player.getHP() -= opponantAttack2.getdamage();
             }
+
+            if()
+            {
+              
+            }
           }
 
-        System.out.println("Congratulations");
+        System.out.println("Congratulations, You Win!");
       }
   }
 }
