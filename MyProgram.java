@@ -51,7 +51,7 @@ public class MyProgram {
                 System.out.println("Hi! Sorry to keep you waiting! Welcome to the world of Pokémon! My name is Oak. People call me the Pokémon Professor."
                 + "\nThis is a world inhabited by creatures called Pokémon."
                 + "\nFor some people, Pokémon are pets. Others use them for fights. Myself... I study Pokémon as a profession." 
-                + "\nBut first, tell me a little about yourself. what's your name: "
+                + "\nBut first, tell me a little about yourself. what's your name: ");
                 playerName = scanner.nextLine();
                 System.out.println("All right, so your name is " + playerName + ". Your adventure is about to unfold. Fun experiences, difficult experiences..."
                 + "\nThere's so much waiting for you. Dreams, adventure, let's go!");                  
