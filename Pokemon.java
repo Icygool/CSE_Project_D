@@ -12,6 +12,7 @@ public class Pokemon
 {
     public String name;
     public String type;
+    public int maxHp;
     public int hp;
     public Attacks attack1;
     public Attacks attack2;
@@ -19,10 +20,11 @@ public class Pokemon
     public int damage;
     
     
-    public Pokemon(String name, String type, int hp, Attack attack1, Attack attack2)
+    public Pokemon(String name, String type, int maxHp, int hp, Attack attack1, Attack attack2)
     {
         this.name = name;
         this.type = type;
+        this.maxHp = maxHp;
         this.hp = hp;
         this.attack1 = attack1;
         this.attack2 = attack2;
@@ -48,42 +50,10 @@ public class Pokemon
         return hp;
     }
     
-    public takeDamage(Pokemon Target, Attack attackUsed)
+    public takeDamage(double damagedealt)
     {
-        double typeEffectiveness = 0;
-        if(Target.getType().equals("fire") and attackUsed.getType().equals("water"))
-        {
-            typeEffectiveness = 2;
-        }
-        else if(Target.getType().equals("water") and attackUsed.getType().equals("grass"))
-        {
-            typeEffectiveness = 2;
-        }
-        else if(Target.getType().equals("grass") and attackUsed.getType().equals("fire"))
-        {
-            typeEffectiveness = 2;
-        }
-        else if(Target.getType().equals("fire") and attackUsed.getType().equals("grass"))
-        {
-            typeEffectiveness = 0.5;
-        }
-        else if(Target.getType().equals("water") and attackUsed.getType().equals("fire"))
-        {
-            typeEffectiveness = 0.5;
-        }
-        else if(Target.getType().equals("grass") and attackUsed.getType().equals("water"))
-        {
-            typeEffectiveness = 0.5;
-        }
-        else
-        {
-            typeEffectiveness = 1;
-        }
-        
-        double damage = attackUsed.getDamage() * typeEffectiveness;
-        int targetHP = target.getHP();
-        targetHP -= damage;
-        return targetHp;
+        hp -= damagedealt;
+        return hp;
     }
 
     public isAlive()
