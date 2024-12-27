@@ -18,6 +18,7 @@ public class Encounter
     Random rand = new Random();
     
     System.out.println("You sent out " + player.getName() + ", your opponant sent out a " + opponant.getName());
+    boolean victory;
 
     while(true)
       {
@@ -46,6 +47,12 @@ public class Encounter
                   break;
                 }
               }
+            if(opponant.isAlive() == false)
+              {
+                System.out.println("Congratulations, you win!");
+                victory = true;
+                break;
+              }
             int opponantMove = rand.nextInt(2) + 1;
             if(opponantMove == 1)
             {
@@ -58,14 +65,16 @@ public class Encounter
               player.getHP() -= opponant.Attack2().getdamage();
             }
 
-            if()
+            if(player.isAlive() == false)
             {
-              
+              System.out.println("You lose the battle.");
+              victory = false;
+              break;
             }
           }
-
-        System.out.println("Congratulations, You Win!");
+        break;
       }
+    return victory;
   }
 }
 
