@@ -32,7 +32,7 @@ public class MyProgram {
         String HealPokemon = "Would you like to rest your pokemon?";
         String forest1 = "It is an empty forest";
         String town2 = "A snorlax is blocking the way";
-        String forest2 = "YOu encountered a wild bulbasaur";
+        String forest2 = "You encountered a wild bulbasaur";
         
         
         String[] descriptions = new String[trainerBattle, HealPokemon, forest1]
@@ -85,7 +85,7 @@ public class MyProgram {
         
             while(true)
             {
-                String goTo = "";
+                String goTo1 = "";
                 while(true)
                 {
                     System.out.println("As you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
@@ -101,7 +101,7 @@ public class MyProgram {
                      int isRealLocation = BinarySearch(locations, locations1);
                     if(isRealLocation > 0)
                     {
-                        goTo += locations1;
+                        goTo1 += locations1;
                         break;
                     }
                     else
@@ -109,31 +109,35 @@ public class MyProgram {
                         System.out.println("That is not a location you can visit. Please try again.");
                     }
                 }
-                if(goTo.equalsIgnorecase("north"))
+                if(goTo1.equalsIgnorecase("north"))
                 {
                     locations.forest();
                 
                 }
-                else if(goTo.equalsIgnorecase("west"))
+                else if(goTo1.equalsIgnorecase("west"))
                 {
                     Attacks trainerAttack1  = new Attack(attacks(1), pps.(1), types.(1));
                     Attacks trainerAttack2  = new Attack(attacks.(4), pps.(4), types.(3));
                     pokemon trainer = new Pokemon(pokemons.(1), hp.(1), trainerAttack1, trainerAttack2, types(1));
                 
                     locations.trainerBattle();
-                    wildEncounter = Encounter(player, trainer);
+                    boolean trainerEncounter = Encounter(player, trainer);
                     break;
                 }
                 else
                 {
                     locations.pokemonCenter();
+                }
                 
-                }    
+                if(trainerEncounter == true)
+                {
+                    break;
+                }
             }
 
             while(true)
             {
-                String goTo = "";
+                String goTo2 = "";
                 while(true)
                 {
                     System.out.println("After the battle with pokemon trainer, you continue your journey west, before coming across another fork in the road"
@@ -149,7 +153,7 @@ public class MyProgram {
                     int isRealLocation = BinarySearch(locations, locations1);
                     if(isRealLocation > 0)
                     {
-                        goTo += locations1;
+                        goTo2 += locations1;
                         break;
                     }
                     else
@@ -157,7 +161,7 @@ public class MyProgram {
                         System.out.println("That is not a location you can visit. Please try again.");
                     }
                 }
-                if(goTo.equalsIgnorecase("north"))
+                if(goTo2.equalsIgnorecase("north"))
                 {
                     locations.forest();
                     Attacks wildAttack1  = new Attack(attacks.(2), pps.(2), types.(2));
@@ -165,10 +169,10 @@ public class MyProgram {
                     pokemon wild = new Pokemon(pokemons.(2), hp.(2), wildAttack1, wildAttack2, types.(2));
                     
                     locations.trainerBattle();
-                    wildEncounter = Encounter(player, wild);
+                    boolean wildEncounter = Encounter(player, wild);
                     break;
                 }
-                else if(goTo.equalsIgnorecase("west"))
+                else if(goTo2.equalsIgnorecase("west"))
                 {
                     locations.();
                 }
@@ -177,7 +181,10 @@ public class MyProgram {
                     locations.pokemonCenter();
                 }    
             }
-            System.out.println("Congratulations, your a failure");
+            if(wildEncounter == true)
+            {
+                break;
+            }
         }
     }
         
