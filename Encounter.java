@@ -76,5 +76,42 @@ public class Encounter
       }
     return victory;
   }
-}
 
+  public takeDamage(Pokemon Target, Attack attackUsed)
+  {
+        double typeEffectiveness = 0;
+        if(Target.getType().equals("fire") and attackUsed.getType().equals("water"))
+        {
+            typeEffectiveness = 2;
+        }
+        else if(Target.getType().equals("water") and attackUsed.getType().equals("grass"))
+        {
+            typeEffectiveness = 2;
+        }
+        else if(Target.getType().equals("grass") and attackUsed.getType().equals("fire"))
+        {
+             typeEffectiveness = 2;
+        }
+        else if(Target.getType().equals("fire") and attackUsed.getType().equals("grass"))
+        {
+            typeEffectiveness = 0.5;
+        }
+        else if(Target.getType().equals("water") and attackUsed.getType().equals("fire"))
+        {
+            typeEffectiveness = 0.5;
+        }
+        else if(Target.getType().equals("grass") and attackUsed.getType().equals("water"))
+        {
+            typeEffectiveness = 0.5;
+        }
+        else
+        {
+            typeEffectiveness = 1;
+        }
+          
+        double damage = attackUsed.getDamage() * typeEffectiveness;
+        int targetHP = target.getHP();
+        targetHP -= damage;
+        return targetHp;
+    }
+}
