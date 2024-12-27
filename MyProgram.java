@@ -38,48 +38,45 @@ public class MyProgram {
         String[] descriptions = new String[trainerBattle, HealPokemon, forest1]
 
         String playerName = "";
-
+        
+        System.out.println("Pokemon Text Adventure");
+        System.out.println("Start \nExit");
+        System.out.println("Enter a command: ");
+        String beginning = scanner.nextLine();
+    
+        if(beginning.equalsIgnoreCase("start"))
+        {
+            System.out.println("Hi! Sorry to keep you waiting! Welcome to the world of Pokémon! My name is Oak. People call me the Pokémon Professor."
+             + "\nThis is a world inhabited by creatures called Pokémon."
+             + "\nFor some people, Pokémon are pets. Others use them for fights. Myself... I study Pokémon as a profession." 
+             + "\nBut first, tell me a little about yourself. what's your name: ");
+             playerName = scanner.nextLine();
+             System.out.println("All right, so your name is " + playerName + ". Your adventure is about to unfold. Fun experiences, difficult experiences..."
+             + "\nThere's so much waiting for you. Dreams, adventure, let's go!");                  
+        }
+        else
+        {
+            System.out.println("nothing");
+        }
+        
+         System.out.println();
+        
         while(true)
             {
-                System.out.println("Pokemon Text Adventure");
-            System.out.println("Start \nExit");
-            System.out.println("Enter a command: ");
-            String beginning = scanner.nextLine();
-        
-            if(beginning.equalsIgnoreCase("start"))
-            {
-                System.out.println("Hi! Sorry to keep you waiting! Welcome to the world of Pokémon! My name is Oak. People call me the Pokémon Professor."
-                + "\nThis is a world inhabited by creatures called Pokémon."
-                + "\nFor some people, Pokémon are pets. Others use them for fights. Myself... I study Pokémon as a profession." 
-                + "\nBut first, tell me a little about yourself. what's your name: ");
-                playerName = scanner.nextLine();
-                System.out.println("All right, so your name is " + playerName + ". Your adventure is about to unfold. Fun experiences, difficult experiences..."
-                + "\nThere's so much waiting for you. Dreams, adventure, let's go!");                  
-            }
-            else
-            {
-                System.out.println("nothing");
-            }
-        
-            System.out.println();
-        
-    
-            while(true)
+                System.out.println("First. Please select one of the following pokemon."
+                + "\nOption 1: Charmander"
+                + "\nOption 2: Squirtle"
+                + "\nOption 3: Bulbasaur");
+                String pokemonSelected = scanner.nextLine();
+                int correctChoice = BinarySearch(pokemon, pokemonSelected);
+                if(correctChoice >= 0)
                 {
-                    System.out.println("First. Please select one of the following pokemon."
-                    + "\nOption 1: Charmander"
-                    + "\nOption 2: Squirtle"
-                    + "\nOption 3: Bulbasaur");
-                    String pokemonSelected = scanner.nextLine();
-                    int correctChoice = BinarySearch(pokemon, pokemonSelected);
-                    if(correctChoice >= 0)
-                    {
-                        Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice), types.(correctChoice));
-                        Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), types.(3));
-                        Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice, types.(correctChoice));
-                        break;
-                    }
+                    Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice), types.(correctChoice));
+                    Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), types.(3));
+                    Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice, types.(correctChoice));
+                    break;
                 }
+            }
         
             System.out.println();
         
@@ -122,16 +119,14 @@ public class MyProgram {
                 
                     locations.trainerBattle();
                     boolean trainerEncounter = Encounter(player, trainer);
-                    break;
+                     if(trainerEncounter == true)
+                    {
+                        break;
+                    }
                 }
                 else
                 {
                     locations.pokemonCenter();
-                }
-                
-                if(trainerEncounter == true)
-                {
-                    break;
                 }
             }
 
@@ -170,7 +165,10 @@ public class MyProgram {
                     
                     locations.trainerBattle();
                     boolean wildEncounter = Encounter(player, wild);
-                    break;
+                    if(wildEncounter == true)
+                    {
+                        break;
+                    }
                 }
                 else if(goTo2.equalsIgnorecase("west"))
                 {
@@ -180,11 +178,7 @@ public class MyProgram {
                 {
                     locations.pokemonCenter();
                 }    
-            }
-            if(wildEncounter == true)
-            {
-                break;
-            }
+            
         }
         System.out.println("End of demo!");
     }
