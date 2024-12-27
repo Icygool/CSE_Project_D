@@ -20,10 +20,13 @@ public class Encounter
     System.out.println("You sent out " + player.getName() + ", your opponant sent out a " + opponant.getName());
     boolean victory;
 
+    int currantHpOpponant = opponant.getHP();
+    int currantHpPlayer = player.getHP();
+
     while(true)
       {
-        System.out.println(opponant.getName() + " HP:" + opponant.getHP());
-        System.out.println(player.getName() + " HP: " + player.getHP());
+        System.out.println(opponant.getName() + " HP:" + currantHpOpponant);
+        System.out.println(player.getName() + " HP: " + currantHpPlayer);
 
         while(true)
           {
@@ -33,11 +36,11 @@ public class Encounter
                            + "Opion 1: " + player.Attack1().getName() + ": damage" +  + " pp: " + player.Attack1().getPP()
                            + "\n Option2:" + player.Attack2().getName() + ": damage" +  + " pp: " + player.Attack2().getPP());
                 String choice = scanner.nextLine();
-                if(choice.equalsIgnorecase(player.Attack1().getName()))
+                if(choice.equalsIgnorecase(player.getAttack1().getName()))
                 {
                   System.out.println("");
-                  opponant.getHP() -= player.Attack1().getDamage();
-                  
+                  int damage = calculateDamage(opponant, player.getAttack1());
+                  currantHpOpponant -= damage;
                   break;
                 }
                 else if(choice.equalsIgnorecase(player.Attack1().getName()))
@@ -77,30 +80,18 @@ public class Encounter
     return victory;
   }
 
-  public calculateDamage(Pokemon Target, Attack attackUsed)
+  public calculateDamage(Pokemon target,Attack attackUsed)
   {
         double typeEffectiveness = 0;
-        if(Target.getType().equals("fire") and attackUsed.getType().equals("water"))
+        if((target.getType().equals("fire") and attackUsed.getType().equals("water"))
+           || (target.getType().equals("water") and attackUsed.getType().equals("grass"))
+           || (target.getType().equals("grass") and attackUsed.getType().equals("fire")))
         {
             typeEffectiveness = 2;
         }
-        else if(Target.getType().equals("water") and attackUsed.getType().equals("grass"))
-        {
-            typeEffectiveness = 2;
-        }
-        else if(Target.getType().equals("grass") and attackUsed.getType().equals("fire"))
-        {
-             typeEffectiveness = 2;
-        }
-        else if(Target.getType().equals("fire") and attackUsed.getType().equals("grass"))
-        {
-            typeEffectiveness = 0.5;
-        }
-        else if(Target.getType().equals("water") and attackUsed.getType().equals("fire"))
-        {
-            typeEffectiveness = 0.5;
-        }
-        else if(Target.getType().equals("grass") and attackUsed.getType().equals("water"))
+        else if((target.getType().equals("fire") and attackUsed.getType().equals("grass"))
+          || (target.getType().equals("water") and attackUsed.getType().equals("fire"))
+          || (target.getType().equals("grass") and attackUsed.getType().equals("water")))
         {
             typeEffectiveness = 0.5;
         }
@@ -110,8 +101,6 @@ public class Encounter
         }
           
         double damage = attackUsed.getDamage() * typeEffectiveness;
-        int targetHP = target.getHP();
-        targetHP -= damage;
-        return targetHp;
+        return damage;
     }
 }
