@@ -77,7 +77,7 @@ public class Encounter
     return victory;
   }
 
-  public takeDamage(Pokemon Target, Attack attackUsed)
+  public calculateDamage(Pokemon Target, Attack attackUsed)
   {
         double typeEffectiveness = 0;
         if(Target.getType().equals("fire") and attackUsed.getType().equals("water"))
