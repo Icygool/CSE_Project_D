@@ -8,6 +8,11 @@ package Final_Project;
  *
  * @author 27144004
  */
+public static void main(String... args)
+    {
+        MyProgram.main(args);
+    }
+
 public class Attacks
 {
     public String name;
