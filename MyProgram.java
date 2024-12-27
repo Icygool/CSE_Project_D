@@ -186,6 +186,7 @@ public class MyProgram {
                 break;
             }
         }
+        System.out.println("End of demo!");
     }
         
 
