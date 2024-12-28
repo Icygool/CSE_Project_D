@@ -58,6 +58,10 @@ public class Pokemon
     public setHp(int currentHp)
     {
         hp = currantHp;
+        if(hp < 0)
+        {
+            hp = 0;
+        }
         return hp;
     }
 
