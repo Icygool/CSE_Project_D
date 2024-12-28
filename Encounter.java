@@ -46,10 +46,12 @@ public class Encounter
                 else if(choice.equalsIgnorecase(player.Attack1().getName()))
                 {  
                   System.out.println("");
-                  opponant.getHP() -= player.Attack2().getDamage();
+                  int damage = calculateDamage(opponant, player.getAttack2());
+                  currantHpOpponant -= damage;
                   break;
                 }
               }
+            opponant.setHp();
             if(opponant.isAlive() == false)
               {
                 System.out.println("Congratulations, you win!");
@@ -60,14 +62,17 @@ public class Encounter
             if(opponantMove == 1)
             {
               System.out.println("");
-              player.getHP() -= opponant.Attack1().getdamage();
+              int damage = calculateDamage(player, opponant.getAttack1());
+              currantHpPlayer -= damage;
             }
             else if(opponantMove == 2)
             {
               System.out.println("");
-              player.getHP() -= opponant.Attack2().getdamage();
+              int damage = calculateDamage(player, opponant.getAttack2());
+              currantHpPlayer -= damage;
             }
 
+            player.setHp(currantPlayerHp);
             if(player.isAlive() == false)
             {
               System.out.println("You lose the battle.");
