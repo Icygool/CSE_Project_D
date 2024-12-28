@@ -45,14 +45,19 @@ public class Pokemon
         return attack2;
     }
 
+    public get maxHp()
+    {
+        return maxHp;
+    }
+
     public getHP()
     {
         return hp;
     }
     
-    public takeDamage(double damagedealt)
+    public setHp(int currentHp)
     {
-        hp -= damagedealt;
+        hp = currantHp;
         return hp;
     }
 
