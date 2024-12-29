@@ -16,14 +16,16 @@ public static void main(String... args)
 public class Attacks
 {
     public String name;
-    public int pp;
+    public int maxPP;
+    public int currentPP;
     public int damage;
     public String type;
     
-    public Attacks(String name, int pp, int damage, String type)
+    public Attacks(String name, int maxPP, int currantPP, int damage, String type)
     {
         this.name = name;
-        this.pp = pp;
+        this.maxPP = maxPP;
+        this.currantPP = currantPP;
         this.damage = damage;
         this.type = type;
     }
@@ -45,12 +47,18 @@ public class Attacks
 
     public getPP()
     {
-        return pp;
+        return currantPP;
+    }
+
+    public decreasePP()
+    {
+        currantPP -= 1;
+        return currantHp;
     }
 
     public isUseable()
     {
-        if(pp > 0)
+        if(currantPP > 0)
         {
             return true;
         }
