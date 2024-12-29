@@ -5,6 +5,7 @@
 package Final_Project;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  *
@@ -28,11 +29,6 @@ public class MyProgram {
         int[] pps = new int["5", "2", "2", "30", "25", "25"];
         String[] locations = new String["north", "west", "east", "south"];
 
-        String trainerBattle = "You walked in front of me, lets battle!";
-        String HealPokemon = "Would you like to rest your pokemon?";
-        String forest1 = "It is an empty forest";
-        String town2 = "A snorlax is blocking the way";
-        String forest2 = "You encountered a wild bulbasaur";
         
         
         String[] descriptions = new String[trainerBattle, HealPokemon, forest1]
@@ -63,12 +59,12 @@ public class MyProgram {
                     + "\nOption 2: Squirtle"
                     + "\nOption 3: Bulbasaur");
                     String pokemonSelected = scanner.nextLine();
-                    int correctChoice = BinarySearch(pokemon, pokemonSelected);
+                    int correctChoice = BubbleSearch(pokemon, pokemonSelected);
                     if(correctChoice >= 0)
                     {
                         Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice), types.(correctChoice));
                         Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), types.(3));
-                        Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice, types.(correctChoice));
+                        Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice, types.(correctChoice));
                         break;
                     }
                 }
@@ -110,7 +106,7 @@ public class MyProgram {
                     {
                         Attacks trainerAttack1  = new Attack(attacks(1), pps.(1), types.(1));
                         Attacks trainerAttack2  = new Attack(attacks.(4), pps.(4), types.(3));
-                        pokemon trainer = new Pokemon(pokemons.(1), hp.(1), trainerAttack1, trainerAttack2, types(1));
+                        pokemon trainer = new Pokemon(pokemons.(1), hp.(1), hp.(1), trainerAttack1, trainerAttack2, types(1));
                     
                         locations.trainerBattle();
                         boolean trainerEncounter = Encounter(player, trainer);
@@ -156,7 +152,7 @@ public class MyProgram {
                         locations.forest();
                         Attacks wildAttack1  = new Attack(attacks.(2), pps.(2), types.(2));
                         Attacks wildAttack2  = new Attack(5), pps.(5), types.(3));
-                        pokemon wild = new Pokemon(pokemons.(2), hp.(2), wildAttack1, wildAttack2, types.(2));
+                        pokemon wild = new Pokemon(pokemons.(2), hp.(correctChoice), hp.(2), wildAttack1, wildAttack2, types.(2));
                         
                         locations.trainerBattle();
                         boolean wildEncounter = Encounter(player, wild);
@@ -178,32 +174,25 @@ public class MyProgram {
     }
         
 
-    public static int binarySearch(String[] a1, String str)
+    private static int[] bubbleSort(int a1[])
     {
-        int low = 0;
-        int high = a1.length - 1;
+        int temp;
+        boolean fixed = false;
         
-        int indexOf = 0;
-        
-        while (low <= high)
+        while(fixed == false)
         {
-            int mid = (low + high) / 2;
-            int isEqual = a1[mid].compareToIgnoreCase(str);
-            
-            if(a1[mid].equalsIgnoreCase(str))
+            fixed = true;
+            for(int i = a1.length - 1; i > 0; i--)
             {
-                indexOf = mid;
-                return indexOf;
-            }
-            else if(isEqual <= 0)
-            {
-                low = mid + 1;
-            }
-            else
-            {
-                high = mid - 1;
+                if(a1[i] > a1[i - 1])
+                {
+                    temp = a1[i - 1];
+                    a1[i - 1] = a1[i];
+                    a1[i] = temp;
+                    fixed = false;
+                }
             }
         }
-        return -1;
+        return a1;
     }
 }
