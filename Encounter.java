@@ -39,16 +39,32 @@ public class Encounter
                 if(choice.equalsIgnorecase(player.getAttack1().getName()))
                 {
                   System.out.println("");
-                  int damage = calculateDamage(opponant, player.getAttack1());
-                  currantHpOpponant -= damage;
-                  break;
+                  if(opponant.getAttack1().isUseable() = false)
+                  {
+                    System.out.println("You do not have enough pp to use this move.");
+                  }
+                  else
+                  {
+                      int damage = calculateDamage(opponant, player.getAttack1());
+                      player.getAttack1().decreasePP();
+                      currantHpOpponant -= damage;
+                      break;
+                  }
                 }
                 else if(choice.equalsIgnorecase(player.Attack1().getName()))
                 {  
                   System.out.println("");
-                  int damage = calculateDamage(opponant, player.getAttack2());
-                  currantHpOpponant -= damage;
-                  break;
+                  if(opponant.getAttack2().isUseable() = false)
+                  {
+                    System.out.println("You do not have enough pp to use this move.");
+                  }
+                  else
+                  {
+                    int damage = calculateDamage(opponant, player.getAttack2());
+                    player.getAttack2().decreasePP();
+                    currantHpOpponant -= damage;
+                    break;
+                  }
                 }
               }
             opponant.setHp();
@@ -62,14 +78,30 @@ public class Encounter
             if(opponantMove == 1)
             {
               System.out.println("");
-              int damage = calculateDamage(player, opponant.getAttack1());
-              currantHpPlayer -= damage;
+              if(opponant.getAttack1().isUseable() = false)
+              {
+                System.out.println("The opponant does not have pp to use this move. ");
+              }
+              else
+              {
+                int damage = calculateDamage(player, opponant.getAttack1());
+                opponant.getAttack1().decreasePP();
+                currantHpPlayer -= damage;
+              }
             }
             else if(opponantMove == 2)
             {
               System.out.println("");
-              int damage = calculateDamage(player, opponant.getAttack2());
-              currantHpPlayer -= damage;
+              if(opponant.getAttack1().isUseable() = false)
+              {
+                System.out.println("The opponant does not have pp to use this move. ");
+              }
+              else
+              {
+                int damage = calculateDamage(player, opponant.getAttack2());
+                opponant.getAttack2().decreasePP();
+                currantHpPlayer -= damage;
+              }
             }
 
             player.setHp(currantPlayerHp);
