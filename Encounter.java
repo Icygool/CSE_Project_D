@@ -47,6 +47,8 @@ public class Encounter
                   {
                       int damage = calculateDamage(opponant, player.getAttack1());
                       player.getAttack1().decreasePP();
+                      System.out.println("You used " + player.getAttack2().getName()  
+                                         + "dealing " + damage + " damage to the opposing " opponant.getName() + ".");
                       currantHpOpponant -= damage;
                       break;
                   }
@@ -62,6 +64,8 @@ public class Encounter
                   {
                     int damage = calculateDamage(opponant, player.getAttack2());
                     player.getAttack2().decreasePP();
+                    System.out.println("You used " + player.getAttack2().getName()  
+                                       + "dealing " + damage + " damage to the opposing " opponant.getName() + ".");
                     currantHpOpponant -= damage;
                     break;
                   }
@@ -86,6 +90,8 @@ public class Encounter
               {
                 int damage = calculateDamage(player, opponant.getAttack1());
                 opponant.getAttack1().decreasePP();
+                System.out.println("The opponant used " + opponant.getAttack1().getName()  
+                                   + "dealing " + damage + " damage to your " player.getName() + ".");
                 currantHpPlayer -= damage;
               }
             }
@@ -100,6 +106,8 @@ public class Encounter
               {
                 int damage = calculateDamage(player, opponant.getAttack2());
                 opponant.getAttack2().decreasePP();
+                System.out.println("The opponant used " + opponant.getAttack2().getName()  
+                                   + "dealing " + damage + " damage to your " player.getName() + ".");
                 currantHpPlayer -= damage;
               }
             }
@@ -139,5 +147,16 @@ public class Encounter
           
         double damage = attackUsed.getDamage() * typeEffectiveness;
         return damage;
+    }
+
+  public struggle(Pokemon target, Pokemon attacker, int currantHp, int num)
+  {
+        if(num = 0)
+        {
+          return "";
+        }
+        System.out.println();
+        return  "The " + attacker.getName() + " Struggled against" + target.getName()
+                + ", hitting " + num + " time, dealing " + (10 * num) + "damage." + struggle(target,  attacker, currantHp - 10, num - 1)
     }
 }
