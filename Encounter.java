@@ -141,16 +141,14 @@ public class Encounter
         return damage;
     }
 
-  public static int struggle(Pokemon target, Pokemon attacker, int num)
-  {
-        int totalDamage = 0;
-        if(num = 0)
-        {
-          return 0;
-        }
-        System.out.prinln("The " + attacker.getName() + " Struggled against" + target.getName() + ", hitting " + num 
-                           + " time, dealing " + (10 * num) + "damage.");
-        return struggle(target, attacker, currantHp, num - 1) + 10;
+public static int struggle(Pokemon target, Pokemon attacker, int num)
+{
+    if(num == 0)
+    {
+        return 0;
     }
-
+    System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + num 
+                       + " time(s), dealing " + (10 * num) + " damage.");
+  
+    return 10 * num + struggle(target, attacker, num - 1);
 }
