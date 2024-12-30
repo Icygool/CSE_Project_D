@@ -32,6 +32,12 @@ public class Encounter
           {
             while(true)
               {
+                int numHits;
+                int damage;
+                Attack playerChoice;
+                Attack opponantChoice;
+                
+                
                 System.out.println("What will you like to do?" 
                            + "Opion 1: " + player.Attack1().getName() + ": damage" +  + " pp: " + player.Attack1().getPP()
                            + "\n Option2:" + player.Attack2().getName() + ": damage" +  + " pp: " + player.Attack2().getPP());
