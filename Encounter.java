@@ -42,6 +42,9 @@ public class Encounter
                   if(opponant.getAttack1().isUseable() = false)
                   {
                     System.out.println("You do not have enough pp to use this move.");
+                    int numHits = rand.nextInt(5) + 1;
+                    int damage = struggle(opponant, player, numHits);
+                    currantHpOpponant -= damage;
                   }
                   else
                   {
@@ -59,6 +62,9 @@ public class Encounter
                   if(opponant.getAttack2().isUseable() = false)
                   {
                     System.out.println("You do not have enough pp to use this move.");
+                    int numHits = rand.nextInt(5) + 1;
+                    int damage = struggle(opponant, player, numHits);
+                    currantHpOpponant -= damage;
                   }
                   else
                   {
@@ -78,6 +84,8 @@ public class Encounter
                 victory = true;
                 break;
               }
+
+            
             int opponantMove = rand.nextInt(2) + 1;
             if(opponantMove == 1)
             {
@@ -85,6 +93,9 @@ public class Encounter
               if(opponant.getAttack1().isUseable() = false)
               {
                 System.out.println("The opponant does not have pp to use this move. ");
+                int numHits = rand.nextInt(5) + 1;
+                int damage = struggle(player, opponant, numHits);
+                currantHpPlayer -= damage;
               }
               else
               {
@@ -101,6 +112,9 @@ public class Encounter
               if(opponant.getAttack1().isUseable() = false)
               {
                 System.out.println("The opponant does not have pp to use this move. ");
+                int numHits = rand.nextInt(5) + 1;
+                int damage = struggle(player, opponant, numHits);
+                currantHpPlayer -= damage;
               }
               else
               {
@@ -149,14 +163,15 @@ public class Encounter
         return damage;
     }
 
-  public struggle(Pokemon target, Pokemon attacker, int currantHp, int num)
+  public static int struggle(Pokemon target, Pokemon attacker, int num)
   {
+        int totalDamage = 0;
         if(num = 0)
         {
-          return "";
+          return 0;
         }
-        System.out.println();
-        return  "The " + attacker.getName() + " Struggled against" + target.getName()
-                + ", hitting " + num + " time, dealing " + (10 * num) + "damage." + struggle(target,  attacker, currantHp - 10, num - 1)
+        System.out.prinln("The " + attacker.getName() + " Struggled against" + target.getName() + ", hitting " + num 
+                           + " time, dealing " + (10 * num) + "damage.");
+        return struggle(target, attacker, currantHp, num - 1) + 10;
     }
 }
