@@ -55,14 +55,13 @@ public class Pokemon
         return hp;
     }
     
-    public setHp(int currentHp)
+    public void setHp(int currentHp)
     {
         hp = currantHp;
         if(hp < 0)
         {
             hp = 0;
         }
-        return hp;
     }
 
     public isAlive()
