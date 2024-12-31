@@ -20,16 +20,16 @@ public class Encounter
     System.out.println("You sent out " + player.getName() + ", your opponant sent out a " + opponant.getName());
     boolean victory;
 
-    int currantHpOpponant;
-    int currantHpPlayer;
+    int currentHpOpponant;
+    int currentHpPlayer;
 
     while(true)
     {
-      currantHpOpponant = opponant.getHP();
-      currantHpPlayer = player.getHP();
+      currentHpOpponant = opponant.getHP();
+      currentHpPlayer = player.getHP();
       
-        System.out.println(opponant.getName() + " HP:" + currantHpOpponant);
-        System.out.println(player.getName() + " HP: " + currantHpPlayer);
+        System.out.println(opponant.getName() + " HP:" + currentHpOpponant);
+        System.out.println(player.getName() + " HP: " + currentHpPlayer);
 
         int numHits;
         int damage;
@@ -72,9 +72,9 @@ public class Encounter
           playerChoice.decreasePP();
           System.out.println("You used " + playerChoice.getName()  
                               + "dealing " + damage + " damage to the opposing " opponant.getName() + ".");
-          currantHpOpponant -= damage;
+          currentHpOpponant -= damage;
         }
-        opponant.setHp();
+        opponant.setHp(opponantCurrentHp);
         if(opponant.isAlive() == false)
         {
           System.out.println("Congratulations, you win!");
@@ -106,10 +106,10 @@ public class Encounter
           opponant.getAttack2().decreasePP();
           System.out.println("The opponant used " + opponantChoice.getName()  
                               + "dealing " + damage + " damage to your " player.getName() + ".");
-          currantHpPlayer -= damage;
+          currentHpPlayer -= damage;
         }
       
-        player.setHp(currantPlayerHp);
+        player.setHp(currentPlayerHp);
         if(player.isAlive() == false)
         {
           System.out.println("You lose the battle.");
