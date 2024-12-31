@@ -21,11 +21,11 @@ public class Attacks
     public int damage;
     public String type;
     
-    public Attacks(String name, int maxPP, int currantPP, int damage, String type)
+    public Attacks(String name, int maxPP, int currentPP, int damage, String type)
     {
         this.name = name;
         this.maxPP = maxPP;
-        this.currantPP = currantPP;
+        this.currentPP = currentPP;
         this.damage = damage;
         this.type = type;
     }
@@ -50,10 +50,14 @@ public class Attacks
         return currantPP;
     }
 
-    public decreasePP()
+    public void decreasePP()
     {
-        currantPP -= 1;
-        return currantHp;
+        currentPP -= 1;
+    }
+
+    public void resetPP()
+    {
+        currentPP = maxPP;
     }
 
     public isUseable()
