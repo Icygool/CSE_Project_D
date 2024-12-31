@@ -31,6 +31,8 @@ public class Locations
         if(heal.equalsIgnorecase("yes"))
         {
             player.setHp(player.getMaxHp());
+            player.getAttack1().resetPP();
+            player.getAttack2().resetPP();
         }
         System.out.printin("After you visit at the pokemon center, you head back to the way you came from.");
         return ;
