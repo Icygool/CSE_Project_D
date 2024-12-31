@@ -20,11 +20,14 @@ public class Encounter
     System.out.println("You sent out " + player.getName() + ", your opponant sent out a " + opponant.getName());
     boolean victory;
 
-    int currantHpOpponant = opponant.getHP();
-    int currantHpPlayer = player.getHP();
+    int currantHpOpponant;
+    int currantHpPlayer;
 
     while(true)
     {
+      currantHpOpponant = opponant.getHP();
+      currantHpPlayer = player.getHP();
+      
         System.out.println(opponant.getName() + " HP:" + currantHpOpponant);
         System.out.println(player.getName() + " HP: " + currantHpPlayer);
 
@@ -59,7 +62,7 @@ public class Encounter
         if(playerChoice.isUseable() = false)
         {
           System.out.println("You do not have enough pp to use this move.");
-          numHits = rand.nextInt(5) + 1;
+          numHits = rand.nextInt(5);
           damage = struggle(opponant, player, numHits);
           currantHpOpponant -= damage;
         }
@@ -71,7 +74,7 @@ public class Encounter
                               + "dealing " + damage + " damage to the opposing " opponant.getName() + ".");
           currantHpOpponant -= damage;
         }
-      opponant.setHp();
+        opponant.setHp();
         if(opponant.isAlive() == false)
         {
           System.out.println("Congratulations, you win!");
@@ -93,7 +96,7 @@ public class Encounter
         if(opponantChoice.isUseable() = false)
         {
           System.out.println("The opponant does not have pp to use this move. ");
-          int numHits = rand.nextInt(5) + 1;
+          int numHits = rand.nextInt(5);
           int damage = struggle(player, opponant, numHits);
           currantHpPlayer -= damage;
         }
@@ -119,36 +122,37 @@ public class Encounter
 
   public calculateDamage(Pokemon target,Attack attackUsed)
   {
-        double typeEffectiveness = 0;
-        if((target.getType().equals("fire") and attackUsed.getType().equals("water"))
-           || (target.getType().equals("water") and attackUsed.getType().equals("grass"))
-           || (target.getType().equals("grass") and attackUsed.getType().equals("fire")))
-        {
-            typeEffectiveness = 2;
-        }
-        else if((target.getType().equals("fire") and attackUsed.getType().equals("grass"))
+      double typeEffectiveness = 0;
+      if((target.getType().equals("fire") and attackUsed.getType().equals("water"))
+          || (target.getType().equals("water") and attackUsed.getType().equals("grass"))
+          || (target.getType().equals("grass") and attackUsed.getType().equals("fire")))
+      {
+          typeEffectiveness = 2;
+      }
+      else if((target.getType().equals("fire") and attackUsed.getType().equals("grass"))
           || (target.getType().equals("water") and attackUsed.getType().equals("fire"))
           || (target.getType().equals("grass") and attackUsed.getType().equals("water")))
-        {
-            typeEffectiveness = 0.5;
-        }
-        else
-        {
-            typeEffectiveness = 1;
-        }
+      {
+          typeEffectiveness = 0.5;
+      }
+      else
+      {
+          typeEffectiveness = 1;
+      }
           
-        double damage = attackUsed.getDamage() * typeEffectiveness;
-        return damage;
-    }
+       double damage = attackUsed.getDamage() * typeEffectiveness;
+      return damage;
+  }
 
-public static int struggle(Pokemon target, Pokemon attacker, int num)
-{
-    if(num == 0)
-    {
-        return 0;
-    }
-    System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + num 
-                       + " time(s), dealing " + (10 * num) + " damage.");
-  
-    return 10 * num + struggle(target, attacker, num - 1);
+  public static int struggle(Pokemon target, Pokemon attacker, int num)
+  {
+      if(num == 0)
+      {
+          return 0;
+      }
+      System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + num 
+                         + " time(s), dealing " + (10 * num) + " damage.");
+    
+      return 10 * num + struggle(target, attacker, num - 1);
+  }
 }
