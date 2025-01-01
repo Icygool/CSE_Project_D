@@ -30,22 +30,22 @@ public class Attacks
         this.type = type;
     }
 
-    public getName()
+    public String getName()
     {
         return name;
     }
 
-    public getDamage()
+    public int getDamage()
     {
         return damage;
     }
 
-    public getType()
+    public String getType()
     {
         return type;
     }
 
-    public getPP()
+    public int getPP()
     {
         return currantPP;
     }
@@ -60,15 +60,8 @@ public class Attacks
         currentPP = maxPP;
     }
 
-    public isUseable()
+    public boolean isUseable()
     {
-        if(currantPP > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return pp > 0;
     }
 }
