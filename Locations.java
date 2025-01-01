@@ -11,18 +11,7 @@ import java.util.Scanner;
  */
 public class Locations
 {
-    public String name;
-    public String description;
-    public String opponantName;
-    
-    public Locations(String name, String description, String opponantName)
-    {
-        this.name = name;
-        this.description = description;
-        this.opponantName = opponantName;
-    }
-
-    public void pokemonCenter(Pokemon player)
+    public static void pokemonCenter(Pokemon player)
     {
         Scanner scanner = new Scanner(System.in);
         
@@ -37,20 +26,20 @@ public class Locations
         System.out.println("After you visit at the pokemon center, you head back to the way you came from.");
     }
 
-    public void forest1()
+    public static void forest1()
     {
         System.out.println("As you walk into the forest, the path comes to a halt as the path is blocked off by a"
                            + " sleeping snorlax, seeing no way around it, you decide to go back.");
         return;
     }
 
-    public void forestBattle()
+    public static void forestBattle()
     {
         System.out.println("As you walk into the forest, you hear a sound eminating from the tall grass, as you walked closer"
                            + " a wild bulbasaur pops out and attempts to attack.");
     }
 
-    public void trainerBattle()
+    public static void trainerBattle()
     {
         Scanner scanner = new Scanner(System.in);
         System.out.println("As you walk into the small town, you see a guy thats standing on the side of the road,"
@@ -59,7 +48,7 @@ public class Locations
         return;
     }
 
-    public void town()
+    public static void town()
     {
         System.out.println("As you walk into town, you see that there is not much to be found, nothing but a couple of "
                            + " abandoned homes and buildings, seeing nothing interesting, youdecide to go back.");
