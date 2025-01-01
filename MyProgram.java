@@ -21,9 +21,9 @@ public class MyProgram {
         // TODO code application logic here
         Scanner scanner = new Scanner(System.in);
         
-        String[] pokemons = new String["Charmander", "Squirtle", "Bulbasaur"];
-        String[] hp = new int[360, 390, 300];
-        String[] attacks = new String["Flamethrower", "Hydro Pump", "Solar Beam", "Headbutt", "Bite", "Slash"];
+        String[] pokemons = {"Charmander", "Squirtle", "Bulbasaur"};
+        String[] hp = {360, 390, 300};
+        String[] attacks = {"Flamethrower", "Hydro Pump", "Solar Beam", "Headbutt", "Bite", "Slash"};
         String[] types = new String["Fire", "Water", "Grass", "Other"];
         int[] damages = new int["100", "120", "120", "50" , "50", "40"];
         int[] pps = new int["5", "2", "2", "30", "25", "25"];
