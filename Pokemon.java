@@ -66,10 +66,6 @@ public class Pokemon
 
     public boolean isAlive()
     {
-        if(hp <= 0)
-        {
-            return false;
-        }
-        return true;
+        return hp < 0;
     }
 }
