@@ -42,12 +42,12 @@ public class Encounter
           + "Opion 1: " + player.Attack1().getName() + ": damage" +  + " pp: " + player.Attack1().getPP()
           + "\n Option2:" + player.Attack2().getName() + ": damage" +  + " pp: " + player.Attack2().getPP());
           String choice = scanner.nextLine();
-          if(choice.equalsIgnorecase(player.getAttack1().getName()))
+          if(choice.equalsIgnoreCase(player.getAttack1().getName()))
           {
             playerChoice = player.getAttack1();
             break;
           }
-          else if(choice.equalsIgnorecase(player.Attack2().getName()))
+          else if(choice.equalsIgnoreCase(player.Attack2().getName()))
           {  
             playerChoice = player.getAttack2();
             break;
@@ -64,14 +64,14 @@ public class Encounter
           System.out.println("You do not have enough pp to use this move.");
           numHits = rand.nextInt(5);
           damage = struggle(opponant, player, numHits);
-          currantHpOpponant -= damage;
+          currentHpOpponant -= damage;
         }
         else
         {
           damage = calculateDamage(opponant, playerChoice);
           playerChoice.decreasePP();
           System.out.println("You used " + playerChoice.getName()  
-                              + "dealing " + damage + " damage to the opposing " opponant.getName() + ".");
+                              + "dealing " + damage + " damage to the opposing " + opponant.getName() + ".");
           currentHpOpponant -= damage;
         }
         opponant.setHp(opponantCurrentHp);
@@ -93,19 +93,19 @@ public class Encounter
         }
     
         System.out.println("");
-        if(opponantChoice.isUseable() = false)
+        if(opponantChoice.isUseable() == false)
         {
           System.out.println("The opponant does not have pp to use this move. ");
           int numHits = rand.nextInt(5);
           int damage = struggle(player, opponant, numHits);
-          currantHpPlayer -= damage;
+          currentHpPlayer -= damage;
         }
         else
         {
           int damage = calculateDamage(player, opponantChoice);
           opponant.getAttack2().decreasePP();
           System.out.println("The opponant used " + opponantChoice.getName()  
-                              + "dealing " + damage + " damage to your " player.getName() + ".");
+                              + "dealing " + damage + " damage to your " + player.getName() + ".");
           currentHpPlayer -= damage;
         }
       
