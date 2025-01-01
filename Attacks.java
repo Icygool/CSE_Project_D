@@ -47,7 +47,7 @@ public class Attacks
 
     public int getPP()
     {
-        return currantPP;
+        return currentPP;
     }
 
     public void decreasePP()
