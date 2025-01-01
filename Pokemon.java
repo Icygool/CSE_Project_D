@@ -30,27 +30,27 @@ public class Pokemon
         this.attack2 = attack2;
     }
 
-    public getName()
+    public String getName()
     {
         return name;
     }
 
-    public getAttack1()
+    public Attack getAttack1()
     {
         return attack1;
     }
 
-    public getAttack2()
+    public Attack getAttack2()
     {
         return attack2;
     }
 
-    public get maxHp()
+    public int getMaxHp()
     {
         return maxHp;
     }
 
-    public getHP()
+    public int getHP()
     {
         return hp;
     }
@@ -64,7 +64,7 @@ public class Pokemon
         }
     }
 
-    public isAlive()
+    public boolean isAlive()
     {
         if(hp <= 0)
         {
