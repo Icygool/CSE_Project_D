@@ -21,17 +21,12 @@ public class MyProgram {
         // TODO code application logic here
         Scanner scanner = new Scanner(System.in);
         
-        String[] pokemons = {"Charmander", "Squirtle", "Bulbasaur"};
-        String[] hp = {360, 390, 300};
-        String[] attacks = {"Flamethrower", "Hydro Pump", "Solar Beam", "Headbutt", "Bite", "Slash"};
-        String[] types = new String["Fire", "Water", "Grass", "Other"];
-        int[] damages = new int["100", "120", "120", "50" , "50", "40"];
-        int[] pps = new int["5", "2", "2", "30", "25", "25"];
-        String[] locations = new String["north", "west", "east", "south"];
-
-        
-        
-        String[] descriptions = new String[trainerBattle, HealPokemon, forest1]
+        String[] pokemons = { "Bulbasaur", "Charmander", "Squirtle"};
+        String[] hp = {300, 360, 390};
+        String[] attacks = {"Solar Beam", "Flamethrower", "Hydro Pump", "Bite", "Slash", "Headbutt",};
+        String[] types = {"Grass", "Fire", "Water", "Other"};
+        int[] damages = {"120", "100", "120", "50", "40", "50"};
+        int[] pps = {"2", "5", "2", "25", "25", "30"}; 
 
         String playerName = "";
         
