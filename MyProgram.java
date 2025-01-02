@@ -28,7 +28,7 @@ public class MyProgram {
         int[] damages = {120, 100, 120, 50, 40, 50};
         int[] pps = {2, 5, 2, 25, 25, 30};
 
-        String[] locations = {"East", "North", "West"};
+        String[] locationChoices = {"East", "North", "West"};
 
         String playerName = "";
         
@@ -59,9 +59,9 @@ public class MyProgram {
                     int correctChoice = BinarySearch(pokemon, pokemonSelected);
                     if(correctChoice >= 0)
                     {
-                        Attacks attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], damage[correctChoice], types[correctChoice)];
-                        Attacks attack2 = new Attacks(attacks[attacks.length() - correctChoice], pps[attacks.length() - correctChoice], damage[attacks.length() - correctChoice], types[3]);
-                        Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), hp.(correctChoice), attack1, attack2, types.(correctChoice));
+                        Attacks attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], pps[correctChoice], damages[correctChoice], types[correctChoice)];
+                        Attacks attack2 = new Attacks(attacks[attacks.length() - correctChoice], pps[attacks.length() - correctChoice], pps[attacks.length() - correctChoice], damages[attacks.length() - correctChoice], types[3]);
+                        Pokemon player = new Pokemon(pokemons[correctChoice], hp[correctChoice], hp[correctChoice], attack1, attack2, types[correctChoice]);
                         break;
                     }
                 }
@@ -82,8 +82,8 @@ public class MyProgram {
                         + "\nOption 2: West"
                         + "\nOption 3: East"
                         + "\nEnter Where you would like to go: ");
-                        String locations = scanner.nextLine();
-                         int isRealLocation = BinarySearch(locations, locations1);
+                        String goTo1 = scanner.nextLine();
+                         int isRealLocation = BinarySearch(locationChoices, goTo1);
                         if(isRealLocation >= 0)
                         {
                             break;
@@ -95,16 +95,16 @@ public class MyProgram {
                     }
                     if(goTo1.equalsIgnoreCase("north"))
                     {
-                        locations.forest();
+                        Locations.forest();
                     
                     }
                     else if(goTo1.equalsIgnoreCase("west"))
                     {
-                        Attacks trainerAttack1  = new Attacks(attacks[1], pps[1], types[1]);
-                        Attacks trainerAttack2  = new Attacks(attacks[4], pps[4], types[3]);
+                        Attacks trainerAttack1  = new Attacks(attacks[1], pps[1], pps[1], damages[1], types[1]);
+                        Attacks trainerAttack2  = new Attacks(attacks[4], pps[4],pps[4], damages[4], types[3]);
                         pokemon trainer = new Pokemon(pokemons[1], hp[1], hp[1], trainerAttack1, trainerAttack2, types[1]);
                     
-                        locations.trainerBattle();
+                        Locations.trainerBattle();
                         boolean trainerEncounter = Encounter(player, trainer);
                          if(trainerEncounter == true)
                         {
@@ -113,7 +113,7 @@ public class MyProgram {
                     }
                     else
                     {
-                        locations.pokemonCenter();
+                        Locations.pokemonCenter();
                     }
                 }
     
@@ -131,11 +131,10 @@ public class MyProgram {
                         + "\nOption 2: West"
                         + "\nOption 3: East"
                         + "\nEnter Where you would like to go: ");
-                        String locations1 = scanner.nextLine();
-                        int isRealLocation = BinarySearch(locations, locations1);
+                        String goTo2 = scanner.nextLine();
+                        int isRealLocation = BinarySearch(locationChoices, goTo2);
                         if(isRealLocation >= 0)
                         {
-                            goTo2 = locations1;
                             break;
                         }
                         else
@@ -146,11 +145,11 @@ public class MyProgram {
                     if(goTo2.equalsIgnoreCase("north"))
                     {
                         locations.forest();
-                        Attacks wildAttack1  = new Attacks(attacks[2], pps[2], types[2]);
-                        Attacks wildAttack2  = new Attacks(attacks[5], pps[5], types[3]);
+                        Attacks wildAttack1  = new Attacks(attacks[2], pps[2], pps[2], damages[2], types[2]);
+                        Attacks wildAttack2  = new Attacks(attacks[5], pps[5], pps[5], damages[5], types[3]);
                         pokemon wild = new Pokemon(pokemons[2], hp[2], hp[2], wildAttack1, wildAttack2, types[2]);
                         
-                        locations.trainerBattle();
+                        Locations.trainerBattle();
                         boolean wildEncounter = Encounter(player, wild);
                         if(wildEncounter == true)
                         {
@@ -159,11 +158,11 @@ public class MyProgram {
                     }
                     else if(goTo2.equalsIgnoreCase("west"))
                     {
-                        locations.town();
+                        Locations.town();
                     }
                     else
                     {
-                        locations.pokemonCenter();
+                        Locations.pokemonCenter();
                     }    
             }
         System.out.println("End of demo!");
