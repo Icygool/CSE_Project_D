@@ -70,7 +70,7 @@ public class MyProgram {
             
                 while(true)
                 {
-                    String goTo1;
+                    goTo1 = "";
                     while(true)
                     {
                         System.out.println("As you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
@@ -82,11 +82,10 @@ public class MyProgram {
                         + "\nOption 2: West"
                         + "\nOption 3: East"
                         + "\nEnter Where you would like to go: ");
-                        String locations1 = scanner.nextLine();
+                        String locations = scanner.nextLine();
                          int isRealLocation = BinarySearch(locations, locations1);
                         if(isRealLocation >= 0)
                         {
-                            goTo1 = locations1;
                             break;
                         }
                         else
@@ -120,7 +119,7 @@ public class MyProgram {
     
                 while(true)
                 {
-                    String goTo2;
+                    String goTo2 = "";
                     while(true)
                     {
                         System.out.println("After the battle with pokemon trainer, you continue your journey west, before coming across another fork in the road"
