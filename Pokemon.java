@@ -11,16 +11,14 @@ package Final_Project;
 public class Pokemon
 {
     public String name;
-    public String type;
+    
     public int maxHp;
     public int hp;
     public Attacks attack1;
     public Attacks attack2;
+    public String type;
     
-    public int damage;
-    
-    
-    public Pokemon(String name, String type, int maxHp, int hp, Attack attack1, Attack attack2)
+    public Pokemon(String name, int maxHp, int hp, Attack attack1, Attack attack2, String type)
     {
         this.name = name;
         this.type = type;
