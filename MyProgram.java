@@ -56,7 +56,7 @@ public class MyProgram {
                     + "\nOption 2: Charmander"
                     + "\nOption 3: Squirtle");
                     String pokemonSelected = scanner.nextLine();
-                    int correctChoice = BinarySearch(pokemon, pokemonSelected);
+                    int correctChoice = BinarySearch(pokemons, pokemonSelected);
                     if(correctChoice >= 0)
                     {
                         Attacks attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], pps[correctChoice], damages[correctChoice], types[correctChoice)];
@@ -67,10 +67,9 @@ public class MyProgram {
                 }
             
                 System.out.println();
-            
+                goTo1 = "";
                 while(true)
                 {
-                    goTo1 = "";
                     while(true)
                     {
                         System.out.println("As you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
@@ -101,7 +100,7 @@ public class MyProgram {
                     else if(goTo1.equalsIgnoreCase("west"))
                     {
                         Attacks trainerAttack1  = new Attacks(attacks[1], pps[1], pps[1], damages[1], types[1]);
-                        Attacks trainerAttack2  = new Attacks(attacks[4], pps[4],pps[4], damages[4], types[3]);
+                        Attacks trainerAttack2  = new Attacks(attacks[4], pps[4], pps[4], damages[4], types[3]);
                         pokemon trainer = new Pokemon(pokemons[1], hp[1], hp[1], trainerAttack1, trainerAttack2, types[1]);
                     
                         Locations.trainerBattle();
@@ -116,10 +115,10 @@ public class MyProgram {
                         Locations.pokemonCenter();
                     }
                 }
-    
+            
+                String goTo2 = "";
                 while(true)
                 {
-                    String goTo2 = "";
                     while(true)
                     {
                         System.out.println("After the battle with pokemon trainer, you continue your journey west, before coming across another fork in the road"
