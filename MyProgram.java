@@ -25,8 +25,8 @@ public class MyProgram {
         String[] hp = {300, 360, 390};
         String[] attacks = {"Solar Beam", "Flamethrower", "Hydro Pump", "Bite", "Slash", "Headbutt",};
         String[] types = {"Grass", "Fire", "Water", "Other"};
-        int[] damages = {"120", "100", "120", "50", "40", "50"};
-        int[] pps = {"2", "5", "2", "25", "25", "30"}; 
+        int[] damages = {120, 100, 120, 50, 40, 50};
+        int[] pps = {2, 5, 2, 25, 25, 30}; 
 
         String playerName = "";
         
@@ -50,16 +50,16 @@ public class MyProgram {
             while(true)
                 {
                     System.out.println("First. Please select one of the following pokemon."
-                    + "\nOption 1: Charmander"
-                    + "\nOption 2: Squirtle"
-                    + "\nOption 3: Bulbasaur");
+                    + "\nOption 1: Bulbasaur"
+                    + "\nOption 2: Charmander"
+                    + "\nOption 3: Squirtle");
                     String pokemonSelected = scanner.nextLine();
-                    int correctChoice = BubbleSearch(pokemon, pokemonSelected);
+                    int correctChoice = BinarySearch(pokemon, pokemonSelected);
                     if(correctChoice >= 0)
                     {
                         Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice), types.(correctChoice));
                         Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), types.(3));
-                        Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), hp.(correctChoice), attacks.(correctChoice), attacks.(attacks.length() - correctChoice, types.(correctChoice));
+                        Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), hp.(correctChoice), attack1, attack2, types.(correctChoice));
                         break;
                     }
                 }
@@ -68,7 +68,7 @@ public class MyProgram {
             
                 while(true)
                 {
-                    String goTo1 = "";
+                    String goTo1;
                     while(true)
                     {
                         System.out.println("As you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
@@ -84,7 +84,7 @@ public class MyProgram {
                          int isRealLocation = BinarySearch(locations, locations1);
                         if(isRealLocation > 0)
                         {
-                            goTo1 += locations1;
+                            goTo1 = locations1;
                             break;
                         }
                         else
@@ -92,16 +92,16 @@ public class MyProgram {
                             System.out.println("That is not a location you can visit. Please try again.");
                         }
                     }
-                    if(goTo1.equalsIgnorecase("north"))
+                    if(goTo1.equalsIgnoreCase("north"))
                     {
                         locations.forest();
                     
                     }
-                    else if(goTo1.equalsIgnorecase("west"))
+                    else if(goTo1.equalsIgnoreCase("west"))
                     {
-                        Attacks trainerAttack1  = new Attack(attacks(1), pps.(1), types.(1));
-                        Attacks trainerAttack2  = new Attack(attacks.(4), pps.(4), types.(3));
-                        pokemon trainer = new Pokemon(pokemons.(1), hp.(1), hp.(1), trainerAttack1, trainerAttack2, types(1));
+                        Attacks trainerAttack1  = new Attacks(attacks[1], pps[1], types[1]);
+                        Attacks trainerAttack2  = new Attacks(attacks[4], pps[4], types[3]);
+                        pokemon trainer = new Pokemon(pokemons[1], hp[1], hp[1], trainerAttack1, trainerAttack2, types[1]);
                     
                         locations.trainerBattle();
                         boolean trainerEncounter = Encounter(player, trainer);
@@ -118,7 +118,7 @@ public class MyProgram {
     
                 while(true)
                 {
-                    String goTo2 = "";
+                    String goTo2;
                     while(true)
                     {
                         System.out.println("After the battle with pokemon trainer, you continue your journey west, before coming across another fork in the road"
@@ -134,7 +134,7 @@ public class MyProgram {
                         int isRealLocation = BinarySearch(locations, locations1);
                         if(isRealLocation > 0)
                         {
-                            goTo2 += locations1;
+                            goTo2 = locations1;
                             break;
                         }
                         else
@@ -142,12 +142,12 @@ public class MyProgram {
                             System.out.println("That is not a location you can visit. Please try again.");
                         }
                     }
-                    if(goTo2.equalsIgnorecase("north"))
+                    if(goTo2.equalsIgnoreCase("north"))
                     {
                         locations.forest();
-                        Attacks wildAttack1  = new Attack(attacks.(2), pps.(2), types.(2));
-                        Attacks wildAttack2  = new Attack(5), pps.(5), types.(3));
-                        pokemon wild = new Pokemon(pokemons.(2), hp.(correctChoice), hp.(2), wildAttack1, wildAttack2, types.(2));
+                        Attacks wildAttack1  = new Attacks(attacks[2], pps[2], types[2]);
+                        Attacks wildAttack2  = new Attacks(attacks[5], pps[5], types[3]);
+                        pokemon wild = new Pokemon(pokemons[2], hp[2], hp[2], wildAttack1, wildAttack2, types[2]);
                         
                         locations.trainerBattle();
                         boolean wildEncounter = Encounter(player, wild);
@@ -156,7 +156,7 @@ public class MyProgram {
                             break;
                         }
                     }
-                    else if(goTo2.equalsIgnorecase("west"))
+                    else if(goTo2.equalsIgnoreCase("west"))
                     {
                         locations.();
                     }
@@ -169,25 +169,32 @@ public class MyProgram {
     }
         
 
-    private static int[] bubbleSort(int a1[])
+    public static int binarySearch(String[] a1, String str)
     {
-        int temp;
-        boolean fixed = false;
+        int low = 0;
+        int high = a1.length - 1;
         
-        while(fixed == false)
+        int indexOf = 0;
+        
+        while (low <= high)
         {
-            fixed = true;
-            for(int i = a1.length - 1; i > 0; i--)
+            int mid = (low + high) / 2;
+            int isEqual = a1[mid].compareToIgnoreCase(str);
+            
+            if(a1[mid].equalsIgnoreCase(str))
             {
-                if(a1[i] > a1[i - 1])
-                {
-                    temp = a1[i - 1];
-                    a1[i - 1] = a1[i];
-                    a1[i] = temp;
-                    fixed = false;
-                }
+                indexOf = mid;
+                return indexOf;
+            }
+            else if(isEqual <= 0)
+            {
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
             }
         }
-        return a1;
+        return -1;
     }
 }
