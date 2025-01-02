@@ -112,7 +112,7 @@ public class MyProgram {
                     }
                     else
                     {
-                        Locations.pokemonCenter();
+                        Locations.pokemonCenter(player);
                     }
                 }
             
@@ -161,7 +161,7 @@ public class MyProgram {
                     }
                     else
                     {
-                        Locations.pokemonCenter();
+                        Locations.pokemonCenter(player);
                     }    
             }
         System.out.println("End of demo!");
