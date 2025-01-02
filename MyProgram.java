@@ -26,7 +26,9 @@ public class MyProgram {
         String[] attacks = {"Solar Beam", "Flamethrower", "Hydro Pump", "Bite", "Slash", "Headbutt",};
         String[] types = {"Grass", "Fire", "Water", "Other"};
         int[] damages = {120, 100, 120, 50, 40, 50};
-        int[] pps = {2, 5, 2, 25, 25, 30}; 
+        int[] pps = {2, 5, 2, 25, 25, 30};
+
+        String[] locations = {"East", "North", "West"};
 
         String playerName = "";
         
@@ -57,8 +59,8 @@ public class MyProgram {
                     int correctChoice = BinarySearch(pokemon, pokemonSelected);
                     if(correctChoice >= 0)
                     {
-                        Attacks attack1 = new Attacks(attacks.(correctChoice), pps.(correctChoice), damage.(correctChoice), types.(correctChoice));
-                        Attacks attack2 = new Attacks(attacks.(attacks.length() - correctChoice), types.(3));
+                        Attacks attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], damage[correctChoice], types[correctChoice)];
+                        Attacks attack2 = new Attacks(attacks[attacks.length() - correctChoice], pps[attacks.length() - correctChoice], damage[attacks.length() - correctChoice], types[3]);
                         Pokemon player = new Pokemon(pokemons.(correctChoice), hp.(correctChoice), hp.(correctChoice), attack1, attack2, types.(correctChoice));
                         break;
                     }
@@ -82,7 +84,7 @@ public class MyProgram {
                         + "\nEnter Where you would like to go: ");
                         String locations1 = scanner.nextLine();
                          int isRealLocation = BinarySearch(locations, locations1);
-                        if(isRealLocation > 0)
+                        if(isRealLocation >= 0)
                         {
                             goTo1 = locations1;
                             break;
@@ -132,7 +134,7 @@ public class MyProgram {
                         + "\nEnter Where you would like to go: ");
                         String locations1 = scanner.nextLine();
                         int isRealLocation = BinarySearch(locations, locations1);
-                        if(isRealLocation > 0)
+                        if(isRealLocation >= 0)
                         {
                             goTo2 = locations1;
                             break;
@@ -158,7 +160,7 @@ public class MyProgram {
                     }
                     else if(goTo2.equalsIgnoreCase("west"))
                     {
-                        locations.();
+                        locations.town();
                     }
                     else
                     {
