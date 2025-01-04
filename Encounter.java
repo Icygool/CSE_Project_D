@@ -23,7 +23,7 @@ public class Encounter
     int currentHpOpponant;
     int currentHpPlayer;
 
-    while(true) //repeats until one of the 
+    while(true) //repeats until the player or opponant wins
     {
       currentHpOpponant = opponant.getHP();
       currentHpPlayer = player.getHP();
@@ -36,7 +36,7 @@ public class Encounter
         Attack playerChoice;
         Attack opponantChoice;
 
-        while(true) //breaks when player or th opponant lose
+        while(true) //breaks when player enters a proper input
         {
           System.out.println("What will you like to do?" 
           + "Opion 1: " + player.Attack1().getName() + ": damage " + " pp:" + player.Attack1().getDamage() + " pp: " + player.Attack1().getPP()
