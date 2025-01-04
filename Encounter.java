@@ -12,7 +12,7 @@ public class Encounter
     this.opponant = opponant;
   }
 
-  public battle() //the battle sequece
+  public boolean battle() //the battle sequece
   {
     Scanner scanner = new Scanner(System.in);
     Random rand = new Random();
