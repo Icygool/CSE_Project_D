@@ -39,8 +39,8 @@ public class Encounter
         while(true)
         {
           System.out.println("What will you like to do?" 
-          + "Opion 1: " + player.Attack1().getName() + ": damage" +  + " pp: " + player.Attack1().getPP()
-          + "\n Option2:" + player.Attack2().getName() + ": damage" +  + " pp: " + player.Attack2().getPP());
+          + "Opion 1: " + player.Attack1().getName() + ": damage " + " pp:" + player.Attack1().getDamage() + " pp: " + player.Attack1().getPP()
+          + "\n Option2:" + player.Attack2().getName() + ": damage" + " pp: " + player.Attack2().getPP());
           String choice = scanner.nextLine();
           if(choice.equalsIgnoreCase(player.getAttack1().getName()))
           {
@@ -59,7 +59,7 @@ public class Encounter
         }
                 
         System.out.println("");
-        if(playerChoice.isUseable() = false)
+        if(playerChoice.isUseable() == false)
         {
           System.out.println("You do not have enough pp to use this move.");
           numHits = rand.nextInt(5);
@@ -96,13 +96,13 @@ public class Encounter
         if(opponantChoice.isUseable() == false)
         {
           System.out.println("The opponant does not have pp to use this move. ");
-          int numHits = rand.nextInt(5);
-          int damage = struggle(player, opponant, numHits);
+          numHits = rand.nextInt(5);
+          damage = struggle(player, opponant, numHits);
           currentHpPlayer -= damage;
         }
         else
         {
-          int damage = calculateDamage(player, opponantChoice);
+          damage = calculateDamage(player, opponantChoice);
           opponant.getAttack2().decreasePP();
           System.out.println("The opponant used " + opponantChoice.getName()  
                               + "dealing " + damage + " damage to your " + player.getName() + ".");
@@ -120,18 +120,18 @@ public class Encounter
     return victory;
   }        
 
-  public calculateDamage(Pokemon target,Attack attackUsed)
+  public static int calculateDamage(Pokemon target,Attack attackUsed)
   {
       double typeEffectiveness = 0;
-      if((target.getType().equals("fire") and attackUsed.getType().equals("water"))
-          || (target.getType().equals("water") and attackUsed.getType().equals("grass"))
-          || (target.getType().equals("grass") and attackUsed.getType().equals("fire")))
+      if((target.getType().equals("fire") && attackUsed.getType().equals("water"))
+          || (target.getType().equals("water") && attackUsed.getType().equals("grass"))
+          || (target.getType().equals("grass") && attackUsed.getType().equals("fire")))
       {
           typeEffectiveness = 2;
       }
-      else if((target.getType().equals("fire") and attackUsed.getType().equals("grass"))
-          || (target.getType().equals("water") and attackUsed.getType().equals("fire"))
-          || (target.getType().equals("grass") and attackUsed.getType().equals("water")))
+      else if((target.getType().equals("fire") && attackUsed.getType().equals("grass"))
+          || (target.getType().equals("water") && attackUsed.getType().equals("fire"))
+          || (target.getType().equals("grass") && attackUsed.getType().equals("water")))
       {
           typeEffectiveness = 0.5;
       }
@@ -140,7 +140,7 @@ public class Encounter
           typeEffectiveness = 1;
       }
           
-       double damage = attackUsed.getDamage() * typeEffectiveness;
+      int damage = attackUsed.getDamage() * typeEffectiveness;
       return damage;
   }
 
