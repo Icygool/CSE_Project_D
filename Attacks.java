@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Final_Project;
-
-/**
- *
- * @author 27144004
- */
-public static void main(String... args)
+public class Main
+{
+    public static void main(String[] args)
     {
         MyProgram.main(args);
     }
+}
 
 public class Attacks
 {
