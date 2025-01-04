@@ -1,14 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Final_Project;
-
 import java.util.Scanner;
-/**
- *
- * @author 27144004
- */
+
 public class Locations
 {
     public static void pokemonCenter(Pokemon player)
@@ -36,12 +27,11 @@ public class Locations
     public static void forestBattle()
     {
         System.out.println("As you walk into the forest, you hear a sound eminating from the tall grass, as you walked closer"
-                           + " a wild bulbasaur pops out and attempts to attack.");
+                           + " a wild pokemon pops out and attempts to attack.");
     }
 
     public static void trainerBattle()
     {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("As you walk into the small town, you see a guy thats standing on the side of the road,"
                            + "just starin into a wall with a smile on his face, as you walk infront of him he stops you dead in your tracks,"
                            + "You walked infront of me,  lets battle!");
