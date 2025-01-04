@@ -12,7 +12,7 @@ public class Encounter
     this.opponant = opponant;
   }
 
-  public battle()
+  public battle() //the battle sequece
   {
     Scanner scanner = new Scanner(System.in);
     Random rand = new Random();
@@ -23,7 +23,7 @@ public class Encounter
     int currentHpOpponant;
     int currentHpPlayer;
 
-    while(true)
+    while(true) //repeats until one of the 
     {
       currentHpOpponant = opponant.getHP();
       currentHpPlayer = player.getHP();
@@ -36,7 +36,7 @@ public class Encounter
         Attack playerChoice;
         Attack opponantChoice;
 
-        while(true)
+        while(true) //breaks when player or th opponant lose
         {
           System.out.println("What will you like to do?" 
           + "Opion 1: " + player.Attack1().getName() + ": damage " + " pp:" + player.Attack1().getDamage() + " pp: " + player.Attack1().getPP()
@@ -59,7 +59,7 @@ public class Encounter
         }
                 
         System.out.println("");
-        if(playerChoice.isUseable() == false)
+        if(playerChoice.isUseable() == false) //player attacks
         {
           System.out.println("You do not have enough pp to use this move.");
           numHits = rand.nextInt(5);
@@ -82,7 +82,7 @@ public class Encounter
             break;
         }
             
-        int opponantMove = rand.nextInt(2) + 1;
+        int opponantMove = rand.nextInt(2) + 1; //randomly selects a attack for the opponant
         if(opponantMove == 1)
         {
           opponantChoice = opponant.getAttack1();
@@ -93,7 +93,7 @@ public class Encounter
         }
     
         System.out.println("");
-        if(opponantChoice.isUseable() == false)
+        if(opponantChoice.isUseable() == false) //opponant attacks
         {
           System.out.println("The opponant does not have pp to use this move. ");
           numHits = rand.nextInt(5);
@@ -112,7 +112,7 @@ public class Encounter
         player.setHp(currentPlayerHp);
         if(player.isAlive() == false)
         {
-          System.out.println("You lose the battle.");
+          System.out.println("You lose the battle.\n you run to the nearest pokemon center toheal your pokemon.");
           victory = false;
           break;
         }
@@ -120,7 +120,7 @@ public class Encounter
     return victory;
   }        
 
-  public static int calculateDamage(Pokemon target,Attack attackUsed)
+  public static int calculateDamage(Pokemon target,Attack attackUsed) //calculates the damage dealt
   {
       double typeEffectiveness = 0;
       if((target.getType().equals("fire") && attackUsed.getType().equals("water"))
@@ -144,7 +144,7 @@ public class Encounter
       return damage;
   }
 
-  public static int struggle(Pokemon target, Pokemon attacker, int num)
+  public static int struggle(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP
   {
       if(num == 0)
       {
