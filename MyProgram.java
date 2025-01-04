@@ -1,21 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package Final_Project;
-
 import java.util.Scanner;
 import java.util.Arrays;
 
-/**
- *
- * @author 27144004
- */
-public class MyProgram {
-
-    /**
-     * @param args the command line arguments
-     */
+public class MyProgram 
+{
     public static void main(String[] args)
     {
         // TODO code application logic here
@@ -59,8 +46,8 @@ public class MyProgram {
                     int correctChoice = BinarySearch(pokemons, pokemonSelected);
                     if(correctChoice >= 0)
                     {
-                        Attacks attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], pps[correctChoice], damages[correctChoice], types[correctChoice)];
-                        Attacks attack2 = new Attacks(attacks[attacks.length() - correctChoice], pps[attacks.length() - correctChoice], pps[attacks.length() - correctChoice], damages[attacks.length() - correctChoice], types[3]);
+                        Attacks attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], pps[correctChoice], damages[correctChoice], types[correctChoice]);
+                        Attacks attack2 = new Attacks(attacks[attacks.length - correctChoice], pps[attacks.length - correctChoice], pps[attacks.length - correctChoice], damages[attacks.length - correctChoice], types[3]);
                         Pokemon player = new Pokemon(pokemons[correctChoice], hp[correctChoice], hp[correctChoice], attack1, attack2, types[correctChoice]);
                         break;
                     }
@@ -130,7 +117,7 @@ public class MyProgram {
                         + "\nOption 2: West"
                         + "\nOption 3: East"
                         + "\nEnter Where you would like to go: ");
-                        String goTo2 = scanner.nextLine();
+                        goTo2 = scanner.nextLine();
                         int isRealLocation = BinarySearch(locationChoices, goTo2);
                         if(isRealLocation >= 0)
                         {
@@ -164,6 +151,7 @@ public class MyProgram {
                         Locations.pokemonCenter(player);
                     }    
             }
+        }
         System.out.println("End of demo!");
     }
         
