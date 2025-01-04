@@ -23,37 +23,37 @@ public class Attacks
         this.type = type;
     }
 
-    public String getName()
+    public String getName() //returns the name
     {
         return name;
     }
 
-    public int getDamage()
+    public int getDamage() //returns the damage
     {
         return damage;
     }
 
-    public String getType()
+    public String getType() //returns the type
     {
         return type;
     }
 
-    public int getPP()
+    public int getPP() //returns the amount of PP the attack has
     {
         return currentPP;
     }
 
-    public void decreasePP()
+    public void decreasePP() //decreases the PP of the attack when used
     {
         currentPP -= 1;
     }
 
-    public void resetPP()
+    public void resetPP() //resets the PP
     {
         currentPP = maxPP;
     }
 
-    public boolean isUseable()
+    public boolean isUseable() //checks if the attack still has pp
     {
         return pp > 0;
     }
