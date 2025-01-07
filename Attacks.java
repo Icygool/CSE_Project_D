@@ -1,11 +1,3 @@
-public class Main
-{
-    public static void main(String[] args)
-    {
-        MyProgram.main(args);
-    }
-}
-
 public class Attacks
 {
     public String name;
@@ -55,6 +47,6 @@ public class Attacks
 
     public boolean isUseable() //checks if the attack still has pp
     {
-        return pp > 0;
+        return currentPP > 0;
     }
 }
