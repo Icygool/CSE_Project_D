@@ -8,7 +8,7 @@ public class Pokemon
     public Attacks attack2;
     public String type;
     
-    public Pokemon(String name, int maxHp, int hp, Attack attack1, Attack attack2, String type)
+    public Pokemon(String name, int maxHp, int hp, Attacks attack1, Attacks attack2, String type)
     {
         this.name = name;
         this.type = type;
@@ -23,12 +23,12 @@ public class Pokemon
         return name;
     }
 
-    public Attack getAttack1() //gets the first attack of the pokemon
+    public Attacks getAttack1() //gets the first attack of the pokemon
     {
         return attack1;
     }
 
-    public Attack getAttack2() //gets the second attack of the pokemon
+    public Attacks getAttack2() //gets the second attack of the pokemon
     {
         return attack2;
     }
@@ -43,6 +43,11 @@ public class Pokemon
         return hp;
     }
     
+    public String getType() //gets the type of the pokemon
+    {
+        return type;
+    }
+    
     public void setHp(int currentHp) //sets the new hp of the pokemon
     {
         hp = currentHp;
@@ -54,6 +59,6 @@ public class Pokemon
 
     public boolean isAlive() //checks if the hp is above 0
     {
-        return hp < 0;
+        return hp > 0;
     }
 }
