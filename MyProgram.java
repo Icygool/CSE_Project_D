@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class MyProgram 
 {
@@ -8,16 +7,18 @@ public class MyProgram
         Scanner scanner = new Scanner(System.in);
         
         String[] pokemons = { "Bulbasaur", "Charmander", "Squirtle"};
-        String[] hp = {300, 360, 390};
-        String[] attacks = {"Solar Beam", "Flamethrower", "Hydro Pump", "Bite", "Slash", "Headbutt",};
+        int[] hp = {300, 360, 390};
+        String[] attacks = {"vine whip", "ember", "water gun", "Bite", "Slash", "Headbutt",};
         String[] types = {"Grass", "Fire", "Water", "Other"};
-        int[] damages = {120, 100, 120, 50, 40, 50};
-        int[] pps = {2, 5, 2, 25, 25, 30};
-
+        int[] damages = {60, 65, 70, 80, 90, 85};
+        int[] pps = {2, 2, 5, 25, 25, 30};
         String[] locationChoices = {"East", "North", "West"};
 
-        String playerName = "";
-        
+        String playerName;
+        Attacks attack1;
+        Attacks attack2;
+        Pokemon player;
+                
         System.out.println("Pokemon Text Adventure");
         System.out.println("Start \nExit");
         System.out.println("Enter a command: ");
@@ -25,7 +26,8 @@ public class MyProgram
     
         if(beginning.equalsIgnoreCase("start")) //introduction sequence
         {
-            System.out.println("Hi! Sorry to keep you waiting! Welcome to the world of Pokémon! My name is Oak. People call me the Pokémon Professor."
+            System.out.println("\n--------------------------------------------------------------------------------------"
+            + "\nHi! Sorry to keep you waiting! Welcome to the world of Pokémon! My name is Oak. People call me the Pokémon Professor."
             + "\nThis is a world inhabited by creatures called Pokémon."
             + "\nFor some people, Pokémon are pets. Others use them for fights. Myself... I study Pokémon as a profession." 
             + "\nBut first, tell me a little about yourself. what's your name: ");
@@ -42,34 +44,37 @@ public class MyProgram
                 + "\nOption 2: Charmander"
                 + "\nOption 3: Squirtle");
                 String pokemonSelected = scanner.nextLine();
-                int correctChoice = BinarySearch(pokemons, pokemonSelected);
+                int correctChoice = binarySearch(pokemons, pokemonSelected);
+                
                 if(correctChoice >= 0) //creates the players pokemon
                 {
-                    Attacks attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], pps[correctChoice], damages[correctChoice], types[correctChoice]);
-                    Attacks attack2 = new Attacks(attacks[attacks.length - correctChoice], pps[attacks.length - correctChoice], pps[attacks.length - correctChoice], damages[attacks.length - correctChoice], types[3]);
-                    Pokemon player = new Pokemon(pokemons[correctChoice], hp[correctChoice], hp[correctChoice], attack1, attack2, types[correctChoice]);
+                    attack1 = new Attacks(attacks[correctChoice], pps[correctChoice], pps[correctChoice], damages[correctChoice], types[correctChoice]);
+                    attack2 = new Attacks(attacks[attacks.length - correctChoice - 1], pps[attacks.length - correctChoice - 1], pps[attacks.length - correctChoice - 1], damages[attacks.length - correctChoice - 1], types[3]);
+                    player = new Pokemon(pokemons[correctChoice], hp[correctChoice], hp[correctChoice], attack1, attack2, types[correctChoice]);
+                    
+                    System.out.println("You have selected " + player.getName() + "\n");
                     break;
                 }
             }
             
             System.out.println();
-            goTo1 = "";
-            boolean trainerEncounter = false;
+            String goTo1 = "";
             while(true) //first section of the game
             {
                 while(true) //picking a location to visit
                 {
-                    System.out.println("As you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
+                    System.out.println("\n--------------------------------------------------------------------------------"
+                    + "\nAs you begin your journey. You find yourself at a crossroads that splits into 3 separate paths,"
                     + "\n The North path leads deep into the forest, where wild pokemon are bound to be present."
                     + "\n The West path leads directly into a small town, where you may encounter other pokemon trainers,"
                     + "\n the East path leads directly into a city, you can find a pokemon center there to heal your pokemon.");
             
-                    System.out.println("Option 1: North"
+                    System.out.println("\nOption 1: North"
                     + "\nOption 2: West"
                     + "\nOption 3: East"
                     + "\nEnter Where you would like to go: ");
                     goTo1 = scanner.nextLine();
-                    int isRealLocation = BinarySearch(locationChoices, goTo1);
+                    int isRealLocation = binarySearch(locationChoices, goTo1);
                     if(isRealLocation >= 0)
                     {
                         break;
@@ -90,7 +95,7 @@ public class MyProgram
                     Pokemon trainer = new Pokemon(pokemons[1], hp[1], hp[1], trainerAttack1, trainerAttack2, types[1]);
                         
                     Locations.trainerBattle();
-                    trainerEncounter = Encounter(player, trainer).battle(); //pokemon battle
+                    boolean trainerEncounter = new Encounter(player, trainer).battle(); //pokemon battle
                     if(trainerEncounter == true) //does the player win
                     {
                         break;
@@ -107,12 +112,12 @@ public class MyProgram
             }
             
             String goTo2 = "";
-            boolean wildEncounter = false;
             while(true) //second section of the game
             {
                 while(true) //selecting a location to visit
                 {
-                    System.out.println("After the battle with pokemon trainer, you continue your journey west, before coming across another fork in the road"
+                    System.out.println("\n----------------------------------------------------------------------------------------------------"
+                    + "\nAfter the battle with pokemon trainer, you continue your journey west, before coming across another fork in the road"
                     + "\n The North path leads into another forest, the path might not be blocked this time."
                     + "\n The West path leads directly into a town, it doesnt seem like thers much people around"
                     + "\n the East path leads directly into a city, you can find a pokemon center there to heal your pokemon.");
@@ -122,7 +127,7 @@ public class MyProgram
                     + "\nOption 3: East"
                     + "\nEnter Where you would like to go: ");
                     goTo2 = scanner.nextLine();
-                    int isRealLocation = BinarySearch(locationChoices, goTo2);
+                    int isRealLocation = binarySearch(locationChoices, goTo2);
                     if(isRealLocation >= 0)
                     {
                         break;
@@ -136,10 +141,10 @@ public class MyProgram
                 {   //creates opponant pokemon
                     Attacks wildAttack1  = new Attacks(attacks[2], pps[2], pps[2], damages[2], types[2]);
                     Attacks wildAttack2  = new Attacks(attacks[5], pps[5], pps[5], damages[5], types[3]);
-                    pokemon wild = new Pokemon(pokemons[2], hp[2], hp[2], wildAttack1, wildAttack2, types[2]);
+                    Pokemon wild = new Pokemon(pokemons[2], hp[2], hp[2], wildAttack1, wildAttack2, types[2]);
                         
-                    Locations.trainerBattle();
-                    wildEncounter = Encounter(player, wild).battle();
+                    Locations.forestBattle();
+                    boolean wildEncounter = new Encounter(player, wild).battle();
                     if(wildEncounter == true) //does the player win
                     {
                         break;
@@ -159,7 +164,7 @@ public class MyProgram
                 }
             }
         }
-    System.out.println("End of demo!"); //the end
+    System.out.println("after the battle, You move forward in your journey, not knowing where it will take you. \nend of demo"); //the end
 }
         
 
@@ -168,7 +173,7 @@ public class MyProgram
         int low = 0;
         int high = a1.length - 1;
         
-        int indexOf = 0;
+        int indexOf;
         
         while (low <= high)
         {
