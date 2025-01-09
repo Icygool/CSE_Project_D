@@ -26,6 +26,8 @@ public class Encounter
     int damage;
     Attacks playerChoice;
     Attacks opponentChoice = null;
+    
+    int turn = 1;
 
     while(true) //repeats until the player or opponant wins
     {
@@ -33,15 +35,15 @@ public class Encounter
         currentHpPlayer = player.getHP();
         
         System.out.println("---------------------------------------------------------------------");
-      
-        System.out.println("Opponants " + opponent.getName() + " HP:" + currentHpOpponent);
+        System.out.println("Turn: " + turn);
+        System.out.println("the opposing " + opponent.getName() + " HP: " + currentHpOpponent);
         System.out.println("Your " + player.getName() + " HP: " + currentHpPlayer);     
 
         while(true) //breaks when player enters a proper input
         {
           System.out.println("\nWhat will you like to do?" 
-          + "\n Opion 1: " + player.getAttack1().getName() + "| damage: " + player.getAttack1().getDamage() + "| pp: " + player.getAttack1().getPP() + "| type: " + player.getAttack1().getType()
-          + "\n Option 2: " + player.getAttack2().getName() + "| damage: " + player.getAttack2().getDamage() + " :pp " + player.getAttack2().getPP() + "| type: " + player.getAttack2().getType()
+          + "\nOption 1: " + player.getAttack1().getName() + "| damage: " + player.getAttack1().getDamage() + "| pp: " + player.getAttack1().getPP() + "| type: " + player.getAttack1().getType()
+          + "\nOption 2: " + player.getAttack2().getName() + "| damage: " + player.getAttack2().getDamage() + "| :pp " + player.getAttack2().getPP() + "| type: " + player.getAttack2().getType()
           + "\n[enter attack name]: ");
           String choice = scanner.nextLine();
           if(choice.equalsIgnoreCase(player.getAttack1().getName()))
@@ -56,7 +58,7 @@ public class Encounter
           }
           else
           {
-            System.out.println("That is not an option, please choose again");
+            System.out.println("That is not an option, please choose again.");
           }
         }
                 
@@ -72,12 +74,12 @@ public class Encounter
         {
           damage = calculateDamage(opponent, playerChoice);
           playerChoice.decreasePP();
-          System.out.println("You used " + playerChoice.getName()  
+          System.out.println("Your " + player.getName() + " used " + playerChoice.getName()  
                               + " dealing " + damage + " damage to the opposing " + opponent.getName() + ".");
           currentHpOpponent -= damage;
         }
-        opponent.setHp(currentHpOpponent);
-        if(opponent.isAlive() == false)
+        opponent.setHp(currentHpOpponent); //sets the current hp of the opponant
+        if(opponent.isAlive() == false) //does the player win
         {
           System.out.println("Congratulations, you win!");
           victory = true;
@@ -94,14 +96,13 @@ public class Encounter
           opponentChoice = opponent.getAttack2();
         }
     
-        System.out.println("");
+        System.out.println();
         if(opponentChoice != null) //chatGPT
         {
-            System.out.println("");
             if(opponentChoice.isUseable() == false) //opponant attacks
             {
-                System.out.println("The opponant does not have pp to use this move. ");
-                numHits = rand.nextInt(5) + 1;
+                System.out.println("The opponent does not have pp to use this move. ");
+                numHits = rand.nextInt(5);
                 damage = struggle(player, opponent, numHits);
                 currentHpPlayer -= damage;
             }
@@ -109,20 +110,21 @@ public class Encounter
             {
                 damage = calculateDamage(player, opponentChoice);
                 opponent.getAttack2().decreasePP();
-                System.out.println("The opponant used " + opponentChoice.getName()  
+                System.out.println("The opponent's " + opponent.getName() + " used " + opponentChoice.getName()  
                                 + " dealing " + damage + " damage to your " + player.getName() + ".");
                 currentHpPlayer -= damage;
             }
         }
         
-        player.setHp(currentHpPlayer);
-        if(player.isAlive() == false)
+        player.setHp(currentHpPlayer); //sets the current hp of the player
+        if(player.isAlive() == false) //does the opponent win
         {
-          System.out.println("You lose the battle.\n you run to the nearest pokemon center toheal your pokemon.");
+          System.out.println("You lose the battle.\nyou run to the nearest pokemon center to heal your pokemon.");
           victory = false;
           break;
         }
-      }
+        turn += 1;
+    }
     return victory;
   }        
 
@@ -155,16 +157,15 @@ public class Encounter
 
   public static int struggle(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP
   {
-      int numOfHits = 0;
-      
       if(num == 0)
       {
-          return 0;
+          System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + 1
+                         + " time, dealing " + 10 + " damage.");
+          return 10;
       }
-      numOfHits += 1;
-      System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + numOfHits
-                         + " time, dealing " + (10 * numOfHits) + " damage.");
+      System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + 1
+                         + " time, dealing " + 10 + " damage.");
     
-      return struggle(target, attacker, num - 1) + 10 * numOfHits;
+      return struggle(target, attacker, num - 1) + 10;
   }
 }
