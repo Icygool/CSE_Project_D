@@ -155,7 +155,7 @@ public class Encounter
       return damage;
   }
 
-  public static int struggle(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP
+  public static int struggle1(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP
   {
       if(num == 0)
       {
@@ -168,4 +168,19 @@ public class Encounter
     
       return struggle(target, attacker, num - 1) + 10;
   }
+
+  public static int struggle(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP, chatgpt assisted
+    {
+        if (num == 1)
+        {
+            System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + num
+                    + " time, dealing a total of " + num * 10 + " damage.");
+            return 10;
+        }
+
+        int damageDealt = struggle(target, attacker, num - 1) + 10;
+        System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + num
+                            + " time, dealing a total of " + num* 10 + " damage.");
+        return damageDealt;
+    }
 }
