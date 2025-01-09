@@ -7,15 +7,16 @@ public class Locations
         Scanner scanner = new Scanner(System.in);
         if(visit == true) //when the player is visiting the pokemon center
         {
+            System.out.println("\nAs you walk into the pokemon center, you are greeted by the nurse at the front desk");
             System.out.println("Hello, welcome to the pokemon center. would you like to heal your pokemon? [yes/no]: ");
             String heal = scanner.nextLine();
-            if(heal.equalsIgnoreCase("yes"))
+            if(heal.equalsIgnoreCase("yes")) //resets stats
             {
                 player.setHp(player.getMaxHp());
                 player.getAttack1().resetPP();
                 player.getAttack2().resetPP();
             }
-            System.out.println("After you visit at the pokemon center, you head back to the way you came from.");
+            System.out.println("After your visit at the pokemon center, you head back to the way you came from.");
         }
         else //when the player just lose a pokemon battle
         {
@@ -29,25 +30,25 @@ public class Locations
     public static void forest() //a location to be visited in the first section
     {
         System.out.println("As you walk into the forest, the path comes to a halt as the path is blocked off by a"
-                           + " sleeping snorlax, seeing no way around it, you decide to go back.");
+                           + "\nsleeping snorlax, seeing no way around it, you decide to go back.");
     }
 
     public static void forestBattle() //a battle to be had at the second section
     {
         System.out.println("As you walk into the forest, you hear a sound eminating from the tall grass, as you walked closer"
-                           + " a wild pokemon pops out and attempts to attack.");
+                           + "\na wild pokemon pops out and attempts to attack.");
     }
 
     public static void trainerBattle() //a battle to be had at the first section
     {
         System.out.println("As you walk into the small town, you see a guy thats standing on the side of the road,"
-                           + "just starin into a wall with a smile on his face, as you walk infront of him he stops you dead in your tracks,"
-                           + "You walked infront of me,  lets battle!");
+                           + "\njust starin into a wall with a smile on his face,as you walk infront of him he stops you dead in your tracks,"
+                           + "\nYou walked infront of me,  lets battle!");
     }
 
     public static void town() //a location that can be visited at the second section
     {
         System.out.println("As you walk into town, you see that there is not much to be found, nothing but a couple of "
-                           + " abandoned homes and buildings, seeing nothing interesting, you decide to go back.");
+                           + "\nabandoned homes and buildings, seeing nothing interesting, you decide to go back, however a wild pokemon was guarding your way.");
     }
 }
