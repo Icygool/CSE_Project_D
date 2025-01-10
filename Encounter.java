@@ -35,15 +35,15 @@ public class Encounter
         currentHpPlayer = player.getHP();
         
         System.out.println("---------------------------------------------------------------------");
-        System.out.println("Turn: " + turn);
-        System.out.println("the opposing " + opponent.getName() + " HP: " + currentHpOpponent);
-        System.out.println("Your " + player.getName() + " HP: " + currentHpPlayer);     
+        System.out.println("Turn: " + turn); //turn counter
+        System.out.println("The opposing " + opponent.getName() + " HP: " + currentHpOpponent); //opponant
+        System.out.println("Your " + player.getName() + " HP: " + currentHpPlayer); //player
 
         while(true) //breaks when player enters a proper input
         {
           System.out.println("\nWhat will you like to do?" 
           + "\nOption 1: " + player.getAttack1().getName() + "| damage: " + player.getAttack1().getDamage() + "| pp: " + player.getAttack1().getPP() + "| type: " + player.getAttack1().getType()
-          + "\nOption 2: " + player.getAttack2().getName() + "| damage: " + player.getAttack2().getDamage() + "| :pp " + player.getAttack2().getPP() + "| type: " + player.getAttack2().getType()
+          + "\nOption 2: " + player.getAttack2().getName() + "| damage: " + player.getAttack2().getDamage() + "| pp: " + player.getAttack2().getPP() + "| type: " + player.getAttack2().getType()
           + "\n[enter attack name]: ");
           String choice = scanner.nextLine();
           if(choice.equalsIgnoreCase(player.getAttack1().getName()))
@@ -66,7 +66,7 @@ public class Encounter
         if(playerChoice.isUseable() == false) //player attacks
         {
           System.out.println("You do not have enough pp to use this move.");
-          numHits = rand.nextInt(5);
+          numHits = rand.nextInt(6);
           damage = struggle(opponent, player, numHits);
           currentHpOpponent -= damage;
         }
@@ -102,7 +102,7 @@ public class Encounter
             if(opponentChoice.isUseable() == false) //opponant attacks
             {
                 System.out.println("The opponent does not have pp to use this move. ");
-                numHits = rand.nextInt(5);
+                numHits = rand.nextInt(6);
                 damage = struggle(player, opponent, numHits);
                 currentHpPlayer -= damage;
             }
@@ -154,33 +154,19 @@ public class Encounter
       int damage = (int)calculatingDamage; //https://www.geeksforgeeks.org/convert-double-to-integer-in-java/
       return damage;
   }
-
-  public static int struggle1(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP
-  {
-      if(num == 0)
-      {
-          System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + 1
-                         + " time, dealing " + 10 + " damage.");
-          return 10;
-      }
-      System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + 1
-                         + " time, dealing " + 10 + " damage.");
-    
-      return struggle(target, attacker, num - 1) + 10;
-  }
-
-  public static int struggle(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP, chatgpt assisted
+  
+    public static int struggle(Pokemon target, Pokemon attacker, int num) //recursion for when the attack has no PP, chatgpt assisted
     {
-        if (num == 1)
+        if (num == 0)
         {
-            System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + num
-                    + " time, dealing a total of " + num * 10 + " damage.");
+            System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + (num + 1)
+                    + " time, dealing a total of " + (num + 1) * 10 + " damage.");
             return 10;
         }
 
         int damageDealt = struggle(target, attacker, num - 1) + 10;
-        System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + num
-                            + " time, dealing a total of " + num* 10 + " damage.");
+        System.out.println("The " + attacker.getName() + " Struggled against " + target.getName() + ", hitting " + (num + 1)
+                            + " times, dealing a total of " + (num + 1)* 10 + " damage.");
         return damageDealt;
     }
 }
