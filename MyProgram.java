@@ -21,11 +21,11 @@ public class MyProgram
                 
         System.out.println("Pokemon Text Adventure");
         System.out.println("Start \nExit");
-        System.out.println("Enter a command: ");
+        System.out.println("Enter a command [Start/Exit]: ");
         String beginning = scanner.nextLine();
         System.out.println();
     
-        if(beginning.equalsIgnoreCase("start")) //introduction sequence
+        if(beginning.equalsIgnoreCase("start")) //introduction sequence, player decides to actually play the game
         {
             System.out.println("--------------------------------------------------------------------------------------"
             + "\nHi! Sorry to keep you waiting! Welcome to the world of Pokémon! My name is Oak. People call me the Pokémon Professor."
@@ -35,15 +35,15 @@ public class MyProgram
             playerName = scanner.nextLine();
             System.out.println("All right, so your name is " + playerName + ". Your adventure is about to unfold. Fun experiences, difficult experiences..."
             + "\nThere's so much waiting for you. Dreams, adventure, let's go!");
-
-            System.out.println();
+;
         
             while(true) //choose a pokemon
             {
-                System.out.println("First. Please select one of the following pokemon."
+                System.out.println("\nFirst. Please select one of the following pokemon."
                 + "\nOption 1: Bulbasaur"
                 + "\nOption 2: Charmander"
-                + "\nOption 3: Squirtle");
+                + "\nOption 3: Squirtle"
+                + "\n[Enter name]: ");
                 String pokemonSelected = scanner.nextLine();
                 int correctChoice = binarySearch(pokemons, pokemonSelected);
                 
@@ -56,9 +56,14 @@ public class MyProgram
                     System.out.println("You have selected " + player.getName() + " The " + player.getType() + "type pokemon");
                     break;
                 }
+                System.out.println("That is not a valid reponse, please try again.\n");
             }
             
             String goTo1 = "";
+            Attacks trainerAttack1;
+            Attacks trainerAttack2;
+            Pokemon trainer;
+            
             while(true) //first section of the game
             {
                 while(true) //picking a location to visit
@@ -72,7 +77,8 @@ public class MyProgram
                     System.out.println("\nOption 1: North"
                     + "\nOption 2: West"
                     + "\nOption 3: East"
-                    + "\nEnter Where you would like to go: ");
+                    + "\nEnter Where you would like to go"
+                    + "\n[North, West, East]: ");
                     goTo1 = scanner.nextLine();
                     int isRealLocation = binarySearch(locationChoices, goTo1);
                     if(isRealLocation >= 0)
@@ -90,9 +96,9 @@ public class MyProgram
                 }
                 else if(goTo1.equalsIgnoreCase("west"))
                 {   //creates the opponant pokemon
-                    Attacks trainerAttack1  = new Attacks(attacks[1], pps[1], pps[1], damages[1], types[1]);
-                    Attacks trainerAttack2  = new Attacks(attacks[4], pps[4], pps[4], damages[4], types[3]);
-                    Pokemon trainer = new Pokemon(pokemons[1], hp[1], hp[1], trainerAttack1, trainerAttack2, types[1]);
+                    trainerAttack1  = new Attacks(attacks[1], pps[1], pps[1], damages[1], types[1]);
+                    trainerAttack2  = new Attacks(attacks[4], pps[4], pps[4], damages[4], types[3]);
+                    trainer = new Pokemon(pokemons[1], hp[1], hp[1], trainerAttack1, trainerAttack2, types[1]);
                         
                     Locations.trainerBattle();
                     boolean trainerEncounter = new Encounter(player, trainer).battle(); //pokemon battle
@@ -128,7 +134,8 @@ public class MyProgram
                     System.out.println("Option 1: North"
                     + "\nOption 2: West"
                     + "\nOption 3: East"
-                    + "\nEnter Where you would like to go: ");
+                    + "\nEnter Where you would like to go"
+                    + "\n[North, West, East]: ");
                     goTo2 = scanner.nextLine();
                     int isRealLocation = binarySearch(locationChoices, goTo2);
                     if(isRealLocation >= 0)
